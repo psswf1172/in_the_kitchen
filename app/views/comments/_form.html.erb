@@ -1,7 +1,7 @@
 <%= form_with(model: [ @recipe, @recipe.comments.build ], local: true) do |form| %>
   <p>
-    <%= form.label :author %><br>
-    <%= form.text_field :author %>
+    <%= form.label :user %><br>
+    <%= form.text_field :user %>
   </p>
   <p>
     <%= form.label :body %><br>
