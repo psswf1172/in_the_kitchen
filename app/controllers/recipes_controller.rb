@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @recipes = Recipe.all
   end
@@ -19,8 +19,9 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.user_id = current_user.id
     if @recipe.save
-      redirect_to @recipe
+      render "ingredients/form"
     else
       render 'new'
     end
@@ -43,6 +44,6 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :course, :instructions, :author)
+    params.require(:recipe).permit(:name, :description, :course, :user, :ingredients)
   end 
 end

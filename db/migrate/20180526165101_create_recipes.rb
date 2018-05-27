@@ -5,7 +5,7 @@ class CreateRecipes < ActiveRecord::Migration[5.1]
       t.text :description
       t.string :course
       t.text :instructions
-      t.string :author
+      t.belongs_to :user, index: true
 
       t.timestamps
     end
