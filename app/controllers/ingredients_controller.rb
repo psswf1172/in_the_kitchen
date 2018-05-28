@@ -3,13 +3,16 @@ class IngredientsController < ApplicationController
 
   def create
     @recipe = Recipe.find(params[:recipe_id])
-    @ingredient = @recipe.ingredients.create(ingredient_params)
-    render "instructions/form"
+    @ingredient = @recipe.ingredient.create(ingredient_params)
+    if @ingredient.save
+      redirect_to recipe_path(@recipe)
+    else
+      redirect_to root_url, :notice => "That ingredient was no good!"
   end
 
   def destroy
     @recipe = Recipe.find(params[:recipe_id])
-    @ingredient = @recipe.ingredients.find(params[:id])
+    @ingredient = @recipe.ingredient.find(params[:id])
     @ingredient.destroy
     redirect_to recipe_path(@recipe)
   end

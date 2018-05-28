@@ -14,6 +14,7 @@ gem 'pg'
 gem 'puma', '~> 3.7'
 
 gem 'bootstrap', '~> 4.1.1'
+gem 'cocoon', '~> 1.2', '>= 1.2.11'
 gem 'dotenv-rails'
 gem 'jquery-rails'
 # Use SCSS for stylesheets

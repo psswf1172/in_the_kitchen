@@ -21,18 +21,18 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id
     if @recipe.save
-      render "ingredients/form"
+      redirect_to @recipe, notice: "Recipe saved!"
     else
-      render 'new'
+      render "new"
     end
   end
 
   def update
     @recipe = Recipe.find(params[:id])
-    if @recipe.update(recipe_params)
+    if @recipe.update_attributes(recipe_params)
       redirect_to @recipe
     else
-      render 'edit'
+      render "edit"
     end
   end
 
@@ -44,6 +44,6 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :course, :user, :ingredients)
+    params.require(:recipe).permit(:name, :description, :course, ingredients_attributes: [:quantity, :measurement, :name, :description, :_destroy], instructions_attributes: [:description, :_destroy] )
   end 
 end

@@ -1,0 +1,12 @@
+
+    <div class="nested-fields">
+      <p>
+        <%= f.label :description %><br>
+        <%= f.text_area :description %>
+      </p>
+
+      <p>
+        <%= f.check_box :_destroy %>
+        <%= link_to_remove_association "remove instruction", f %>
+      </p>
+    </div>

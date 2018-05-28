@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20180527173403) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.text "body"
-    t.integer "recipe_id"
-    t.integer "user_id"
+    t.bigint "recipe_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_comments_on_recipe_id"
@@ -27,15 +30,14 @@ ActiveRecord::Schema.define(version: 20180527173403) do
     t.text "measurement"
     t.text "name"
     t.text "description"
-    t.integer "recipe_id"
+    t.bigint "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
   end
 
   create_table "instructions", force: :cascade do |t|
-    t.integer "recipe_id"
-    t.string "step"
+    t.bigint "recipe_id"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,11 +45,10 @@ ActiveRecord::Schema.define(version: 20180527173403) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.string "name"
+    t.text "name"
     t.text "description"
-    t.string "course"
-    t.text "instructions"
-    t.integer "user_id"
+    t.text "course"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_recipes_on_user_id"
@@ -70,4 +71,7 @@ ActiveRecord::Schema.define(version: 20180527173403) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "recipes"
+  add_foreign_key "ingredients", "recipes"
+  add_foreign_key "instructions", "recipes"
 end

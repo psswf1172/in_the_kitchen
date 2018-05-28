@@ -1,10 +1,9 @@
 class CreateRecipes < ActiveRecord::Migration[5.1]
   def change
     create_table :recipes do |t|
-      t.string :name
+      t.text :name
       t.text :description
-      t.string :course
-      t.text :instructions
+      t.text :course
       t.belongs_to :user, index: true
 
       t.timestamps
