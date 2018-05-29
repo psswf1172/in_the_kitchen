@@ -21,5 +21,4 @@ class IngredientsController < ApplicationController
   def ingredient_params
     params.require(:ingredient).permit(:quantity, :measurement, :name, :description)
   end
-
 end

@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.user_id = current_user.id
+    if @recipe.author.blank? then @recipe.user_id = current_user.id end
     if @recipe.save
       redirect_to @recipe, notice: "Recipe saved!"
     else
@@ -44,6 +44,6 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :course, ingredients_attributes: [:quantity, :measurement, :name, :description, :_destroy], instructions_attributes: [:description, :_destroy] )
+    params.require(:recipe).permit(:name, :description, :author, ingredients_attributes: [:quantity, :measurement, :name, :description, :_destroy], instructions_attributes: [:description, :_destroy] )
   end 
 end
