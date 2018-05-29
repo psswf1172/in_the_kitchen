@@ -29,7 +29,6 @@
       <div class="links">
         <%= link_to_add_association "add ingredient", f, :ingredients %>
       </div>
-    </div>
   </div>
   
   <div>
@@ -43,7 +42,10 @@
       <div class="links">
         <%= link_to_add_association "add instruction", f, :instructions %>
       </div>
-    </div>
+  </div>
+
+  <div>
+    <%= f.text_field :all_tags, placeholder: "Tags, separate with comma" %>
   </div>
 
   <p>

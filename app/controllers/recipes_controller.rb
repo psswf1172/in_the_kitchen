@@ -2,7 +2,11 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @recipes = Recipe.all
+    if params[:tag]
+      @recipes = Recipe.tagged_with(params[:tag])
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show
@@ -44,6 +48,6 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :author, ingredients_attributes: [:quantity, :measurement, :name, :description, :_destroy], instructions_attributes: [:description, :_destroy] )
+    params.require(:recipe).permit(:name, :description, :author, :all_tags, ingredients_attributes: [:quantity, :measurement, :name, :description, :_destroy], instructions_attributes: [:description, :_destroy])
   end 
 end
