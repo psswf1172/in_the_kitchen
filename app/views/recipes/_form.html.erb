@@ -4,9 +4,9 @@
 
       <%= render "shared/errors", object: @recipe %>
 
-      <%= f.text_field :name, :class => "form-control", :value => "Recipe Name" %><br />
-      <%= f.text_area :description, :class => "form-control", :value => "Description" %><br />
-      <%= f.text_field :author, :class => "form-control", :value => "Recipe Author" %><br />
+      <%= f.text_field :name, class: "form-control", placeholder: "Recipe Name" %><br />
+      <%= f.text_area :description, class: "form-control", placeholder: "Description" %><br />
+      <%= f.text_field :author, class: "form-control", placeholder: "Recipe Author" %><br />
 
     <p><strong>Ingredients:</strong></p>
       <div id="ingredients">
@@ -15,7 +15,7 @@
         <% end %>
       </div>
       <div class="links">
-        <%= link_to_add_association "Add ingredient", f, :ingredients, :class => "btn btn-secondary" %>
+        <%= link_to_add_association "Add ingredient", f, :ingredients, class: "btn btn-secondary" %>
       </div>
   
     <p><strong>Instructions:</strong></p>
@@ -25,13 +25,13 @@
         <% end %>
       </div>
       <div class="links">
-        <%= link_to_add_association "add instruction", f, :instructions, :class => "btn btn-secondary" %>
+        <%= link_to_add_association "add instruction", f, :instructions, class: "btn btn-secondary" %>
       </div>
 
   <p><strong>Tags:</strong></p>
-    <%= f.text_field :all_tags, :class => "form-control", :value => "Add comma-separated list of tags (like bread, the main dish, etc,)" %>
+    <%= f.text_field :all_tags, class: "form-control", placeholder: "Add comma-separated list of tags (like bread, the main dish, etc,)" %>
 
-    <%= f.submit :class => "btn btn-secondary" %>
+    <%= f.submit class: "btn btn-secondary" %>
 <% end %>
   </div>
 </div>

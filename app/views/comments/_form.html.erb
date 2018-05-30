@@ -2,7 +2,7 @@
   <div class="card-body">
     <%= form_with(model: [ @recipe, @recipe.comments.build ], local: true) do |form| %>
       <div class="form-group">
-        <textarea class="form-control" id="body" rows="3"></textarea>
+        <%= form.text_area :body, class: "form-control", placeholder: "Description" %><br />
         <%= form.submit :class => "btn btn-secondary" %>
       </div>
     <% end %>

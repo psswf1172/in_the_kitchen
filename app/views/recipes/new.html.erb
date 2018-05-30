@@ -4,7 +4,10 @@
     <br /><h5>Enter recipe details</h5>
 
       <%= render "form", object: @recipe %>
+      
+      <button type="button" class="btn btn-secondary">
       <%= link_to 'Return to recipes list', recipes_path %>
+    </button>
   </div>
   <div class="container col-4"></div>
 </div>
