@@ -1,22 +1,26 @@
-<h1>Recipes</h1>
- 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-  </tr>
- 
-  <% @recipes.each do |recipe| %>
-    <tr>
-      <td><%= recipe.name %></td>
-      <td><%= recipe.description %></td>
-      <td><%= link_to 'Show', recipe_path(recipe) %></td>
-      <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-      <td><%= link_to 'Delete', recipe_path(recipe), method: :delete, data: { confirm: "Are you sure?" } %></td>
-    </tr>
-  <% end %>
-</table>
-
-
 <%= link_to 'Create a New Recipe', new_recipe_path %>
+
+<div class="row">
+  <div class="container col-3"></div>
+  <div class="container col-6">
+    <% @recipes.each do |recipe| %>
+
+      <div class="card"> 
+        <div class="card-body">
+          <h4 class="card-title"><%= link_to recipe.name, recipe_path(recipe)%></h4>
+          <h6 class="card-subtitle mb-2 text-muted"><%= recipe.author %></h6>
+            <p class="card-text"><%= recipe.description %></p>
+            <p><% recipe.tags.each do |tag| %>
+              <span class="badge badge-pill badge-success">
+                <a href="/"><%= tag.name %></a> 
+              </span>
+              <% end %>
+            </p>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+  <div class="container col-3"></div>
+</div>
+

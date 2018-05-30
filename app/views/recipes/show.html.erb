@@ -1,36 +1,98 @@
-<h2>
-  <strong><%= @recipe.name %></strong>
-</h2>
+<div class="jumbotron">
+  <h1><%= @recipe.name %></h1>  
+  <hr class="my-4">
+  <p><%= @recipe.description %></p>
+  <p class="lead">
+    <i><%= @recipe.author %></i>
+  </p>
+</div>
 
-<p>
-  <i><%= @recipe.description %></i>
-</p>
+<br />
 
-<p>
-  <strong>Ingredients:</strong>
-<br> 
-  <%= render @recipe.ingredients %>
-</p>
+<div class="row">
+  <div class="container col-2"></div>
+  <div class="container col-6">  
+    <h4>Ingredients</h4>
+    <p><%= render @recipe.ingredients %></p>
+  </div>
+  <div class="container col-4"></div>
+</div>
 
-<p>
-  <strong>Instructions:</strong>
-</p>
-<p>
-  <%= render @recipe.instructions %>
-</p>
 <br>
 
-<p>
-  <%=raw tag_links(@recipe.all_tags) %>
-</p>
+<div class="row">
+  <div class="container col-2"></div>
+  <div class="container col-6">
+    <h4>Instructions </h4>
+    <p class="instructions"><%= render @recipe.instructions %></p>
+  </div>
+  <div class="container col-4"></div>
+</div>
 
-<h5>Comments</h5>
-  <%= render @recipe.comments %>
+<br>
 
+<div class="row">
+  <div class="container col-2"></div>
+  <div class="container col-6">
+    <% @recipe.tags.each do |tag| %>
+      <span class="badge badge-pill badge-success">
+        <a href="/"><%= tag.name %></a>
+      </span>
+    <% end %>
+  </div>
+  <div class="container col-4"></div>
+</div>
 
-<h5>Add a Comment</h5>
-  <%= render "comments/form" %>
+<br>
+<br />
 
+<div class="row">
+  <div class="container col-2"></div>
+  <div class="container col-6">
+    <% if current_user == @recipe.user %>
+      <button type="button" class="btn btn-secondary">
+        <%= link_to 'Edit Recipe', edit_recipe_path(@recipe) %>
+      </button>
 
-<%= link_to "Edit", edit_recipe_path(@recipe) %>
-<%= link_to "Back", recipes_path %>
+      <button type="button" class="btn btn-secondary">
+        <%= link_to 'Delete Recipe', recipe_path(@recipe), method: :delete, data: { confirm: "Are you sure?" } %>
+      </button>
+    <% end %>
+  </div>
+  <div class="container col-4"></div>
+</div>
+
+<br />
+<br />
+
+<div class="row">
+  <div class="container col-2"></div>
+  <div class="container col-6">
+    <h5>Comments</h5>
+      <%= render @recipe.comments %>
+  </div>
+  <div class="container col-2"></div>
+</div>
+
+<br />
+
+<div class="row">
+  <div class="container col-3"></div>
+  <div class="container col-6">
+    <h6>Add a Comment</h6>
+      <%= render "comments/form" %>
+  </div>
+  <div class="container col-3"></div>
+</div>
+
+<br />
+
+<div class="row">
+  <div class="container col-3"></div>
+  <div class="container col-6">
+    <button type="button" class="btn btn-secondary">
+      <%= link_to "All Recipes", recipes_path %>
+    </button>
+  </div>
+  <div class="container col-3"></div>
+</div>

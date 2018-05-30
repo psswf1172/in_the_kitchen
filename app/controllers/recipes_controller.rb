@@ -23,7 +23,8 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    if @recipe.author.blank? then @recipe.user_id = current_user.id end
+    @recipe.user_id = current_user.id
+    if @recipe.author.blank? then @recipe.author = current_user.id end
     if @recipe.save
       redirect_to @recipe, notice: "Recipe saved!"
     else
