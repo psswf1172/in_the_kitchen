@@ -5,25 +5,21 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarColor02">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
         <a class="nav-link" href="/recipes">Recipes<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/recipes/new">Add Recipe</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"></a>
-      </li>
+      <li class="nav-item"></li>
+      <li class="nav-item"></li>
       <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "Edit profile", edit_user_registration_path, :class=> "nav-link" %>
+         <li class="nav-item">
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class=> "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class=> "nav-link" %>
+          <%= link_to image_tag(current_user.image),  edit_user_registration_path, :class=> "nav-link" %>
         </li>
       <% else %>
         <li class="nav-item">
