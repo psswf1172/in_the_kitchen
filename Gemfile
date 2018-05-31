@@ -7,16 +7,18 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.6'
-# Use postgreSQL as the database for Active Record
-gem 'pg'
-# Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'rails', '~> 5.2'
 
+gem 'aws-sdk-s3', require: false
 gem 'bootstrap', '~> 4.1.1'
 gem 'cocoon', '~> 1.2', '>= 1.2.11'
 gem 'dotenv-rails'
 gem 'jquery-rails'
+gem 'mini_magick'
+# Use postgreSQL as the database for Active Record
+gem 'pg'
+# Use Puma as the app server
+gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

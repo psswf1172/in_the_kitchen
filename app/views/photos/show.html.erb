@@ -1,0 +1,43 @@
+<div>
+  <h1>Photo</h1> 
+  <% if @photo.images.attached? %>
+    <% @photo.images.each do | image | %>
+      <%= image_tag image.variant(resize: "500x500") %>
+    <% end %>
+  <% end %>
+</div>
+
+<br />
+
+<div class="row">
+  <div class="container col-3"></div>
+  <div class="container col-6">
+    <% if current_user == @photo.user %>
+      <button type="button" class="btn btn-secondary">
+        <%= link_to 'Edit Photo', edit_photo_path(@photo) %>
+      </button>
+
+      <button type="button" class="btn btn-secondary">
+        <%= link_to 'Delete Photo', photo_path(@photo), method: :delete, data: { confirm: "Are you sure?" } %>
+      </button>
+    <% end %>
+  </div>
+  <div class="container col-3"></div>
+</div>
+
+<br />
+<br />
+
+
+
+<br />
+
+<div class="row">
+  <div class="container col-3"></div>
+  <div class="container col-6">
+    <button type="button" class="btn btn-secondary">
+      <%= link_to "All photos", photos_path %>
+    </button>
+  </div>
+  <div class="container col-3"></div>
+</div>
