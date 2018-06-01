@@ -1,0 +1,49 @@
+<div class="jumbotron">
+  <h1><%= @story.title %></h1>  
+  <hr class="my-4">
+  <p class="lead">
+    <i><%= @story.user.name %></i>
+  </p>
+</div>
+
+<br />
+
+<div class="row">
+  <div class="container col-3"></div>
+  <div class="container col-6">  
+    <h4></h4>
+    <p><%= @story.content %></p>
+  </div>
+  <div class="container col-3"></div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="container col-3"></div>
+  <div class="container col-6">
+    <% if current_user == @story.user %>
+      <button type="button" class="btn btn-secondary">
+        <%= link_to 'Edit Story', edit_story_path(@story) %>
+      </button>
+
+      <button type="button" class="btn btn-secondary">
+        <%= link_to 'Delete Story', recipe_path(@story), method: :delete, data: { confirm: "Are you sure?" } %>
+      </button>
+    <% end %>
+  </div>
+  <div class="container col-3"></div>
+</div>
+
+<br />
+<br />
+
+<div class="row">
+  <div class="container col-3"></div>
+  <div class="container col-6">
+    <button type="button" class="btn btn-secondary">
+      <%= link_to "All Stories", stories_path %>
+    </button>
+  </div>
+  <div class="container col-3"></div>
+</div>

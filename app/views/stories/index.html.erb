@@ -1,0 +1,21 @@
+<%= link_to 'Create a New Story', new_story_path %>
+
+<div class="row">
+  <div class="container col-3"></div>
+  <div class="container col-6">
+    <% @stories.each do | story | %>
+
+      <div class="card"> 
+        <div class="card-body">
+          <h4 class="card-title"><%= link_to story.title, story_path(story)%></h4>
+          <h6 class="card-subtitle mb-2 text-muted"><%= story.author %></h6>
+            <p class="card-text"><%= story.content %></p>
+            
+        </div>
+      </div>
+
+      <br />
+    <% end %>
+  </div>
+  <div class="container col-3"></div>
+</div>

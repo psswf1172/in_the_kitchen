@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :instructions
   end
 
+  resources :stories
+
   get "tags/:tag", to: "recipes#index", as: "tag"
 
 end
