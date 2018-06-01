@@ -1,3 +1,3 @@
-class Story < ApplicationRecord
-  belongs_to :user
+class Story < Post
+  
 end

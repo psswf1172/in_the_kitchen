@@ -7,7 +7,7 @@
 
       <div class="card"> 
         <div class="card-body">
-          <h4 class="card-title"><%= link_to recipe.name, recipe_path(recipe)%></h4>
+          <h4 class="card-title"><%= link_to recipe.title, recipe_path(recipe)%></h4>
           <h6 class="card-subtitle mb-2 text-muted"><%= recipe.author %></h6>
             <p class="card-text"><%= recipe.description %></p>
             <p><% recipe.tags.each do |tag| %>

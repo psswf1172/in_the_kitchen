@@ -1,6 +1,4 @@
-class Recipe < ApplicationRecord
-
-  belongs_to :user, optional: true
+class Recipe < Post
 
   has_many :comments, dependent: :destroy
 
@@ -11,9 +9,6 @@ class Recipe < ApplicationRecord
   has_many :instructions, dependent: :destroy
   accepts_nested_attributes_for :instructions, allow_destroy: true, 
                                 reject_if: :all_blank
-
-  validates :name, presence: true,
-                   length: { minimum: 3 }
 
   has_many :taggings
   has_many :tags, through: :taggings

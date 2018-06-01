@@ -1,9 +1,9 @@
 <div class="nested-fields">
-  <%= f.text_area :quantity, :class => "form-control", :value => "Quantity"  %><br />
-  <%= f.text_area :measurement, :class => "form-control", :value => "Measurement"   %><br />
-  <%= f.text_area :name, :class => "form-control", :value => "Ingredient Name"   %><br />
-  <%= f.text_area :description, :class => "form-control", :value => "Ingredient description (ie. chopped, grated, etc)"   %><br />
-  <%= f.check_box :_destroy, :class => "form-check-input", :value => "Remove ingredient" %>
+  <%= f.text_area :quantity, class: "form-control", :value => "Quantity"  %><br />
+  <%= f.text_area :measurement, class: "form-control", placeholder: "Measurement"   %><br />
+  <%= f.text_area :name, class: "form-control", placeholder: "Ingredient Name"   %><br />
+  <%= f.text_area :description, class: "form-control", placeholder: "Ingredient description (ie. chopped, grated, etc)"   %><br />
+  <%= f.check_box :_destroy, class: "form-check-input", placeholder: "Remove ingredient" %>
   <%= link_to_remove_association "Remove above ingredient", f %>
 </div>
 <br />

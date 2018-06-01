@@ -5,8 +5,6 @@ class Photo < ApplicationRecord
   scope :with_preloaded_image, -> { preload(image_attachment: :blob) }
 
   validates :images, presence: true
-  belongs_to :user, optional: true
-
 
   # validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   

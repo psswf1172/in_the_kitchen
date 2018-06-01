@@ -4,6 +4,12 @@
 
       <%= render "shared/errors", object: @photo %>
 
+      <%= f.text_field :title, class: "form-control", placeholder: "Photo Title"  %>
+
+      <%= f.text_field :description, class: "form-control", placeholder: "Caption"  %>
+
+      <%= f.text_field :author, class: "form-control", placeholder: "Photo credit"  %>
+
       <%= f.file_field :images, multiple: true, direct_upload: true %>
 
     <%= f.submit class: "btn btn-secondary" %>

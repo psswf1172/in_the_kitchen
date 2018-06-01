@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_31_184443) do
+ActiveRecord::Schema.define(version: 2018_06_01_142829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,31 +66,29 @@ ActiveRecord::Schema.define(version: 2018_05_31_184443) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.text "caption"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_photos_on_user_id"
   end
 
-  create_table "recipes", force: :cascade do |t|
-    t.text "name"
+  create_table "posts", force: :cascade do |t|
+    t.text "title"
     t.text "description"
     t.text "author"
     t.bigint "user_id"
+    t.text "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_recipes_on_user_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "stories", force: :cascade do |t|
-    t.text "title"
-    t.text "content"
-    t.text "author"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_stories_on_user_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -130,8 +128,6 @@ ActiveRecord::Schema.define(version: 2018_05_31_184443) do
   end
 
   add_foreign_key "comments", "recipes"
-  add_foreign_key "ingredients", "recipes"
-  add_foreign_key "instructions", "recipes"
   add_foreign_key "taggings", "recipes"
   add_foreign_key "taggings", "tags"
 end

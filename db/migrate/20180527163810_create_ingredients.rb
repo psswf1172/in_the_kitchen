@@ -5,7 +5,7 @@ class CreateIngredients < ActiveRecord::Migration[5.1]
       t.text :measurement
       t.text :name
       t.text :description
-      t.belongs_to :recipe, foreign_key: true
+      t.belongs_to :recipe, index: true
 
       t.timestamps
     end

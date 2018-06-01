@@ -1,7 +1,7 @@
 <div class="nested-fields">
   <div class="row">
-    <%= f.text_area :description, :class => "form-control", :value => "Enter work step"    %><br />
-      <%= f.check_box :_destroy, :class => "form-check-input", :value => "Remove instruction"  %>
+    <%= f.text_area :description, class: "form-control", placeholder: "Enter work step"    %><br />
+      <%= f.check_box :_destroy, class: "form-check-input", placeholder: "Remove instruction"  %>
       <%= link_to_remove_association "Remove above instruction", f %>
   </div>
 </div>
