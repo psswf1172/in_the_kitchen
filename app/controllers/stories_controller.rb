@@ -1,5 +1,4 @@
 class StoriesController < ApplicationController
-  before_action :authenticate_user!
 
   def index
     @stories = Story.all
@@ -45,6 +44,6 @@ class StoriesController < ApplicationController
 
   private
   def story_params
-    params.require(:story).permit(:title, :description, :author)
+    params.require(:story).permit(:title, :description, :author, :all_tags, :_destroy)
   end
 end

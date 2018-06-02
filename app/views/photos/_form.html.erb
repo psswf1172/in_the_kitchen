@@ -1,18 +1,18 @@
 <div class="card">
   <div class="card-body">
-    <%= form_for @photo do | f | %>
+    <%= form_with scope: :photo, url: photos_path, local: true do | f | %>
 
       <%= render "shared/errors", object: @photo %>
 
-      <%= f.text_field :title, class: "form-control", placeholder: "Photo Title"  %>
+      <%= f.text_field :title, class: "form-control", placeholder: "Photo Title"  %><br />
 
-      <%= f.text_field :description, class: "form-control", placeholder: "Caption"  %>
+      <%= f.text_field :description, class: "form-control", placeholder: "Caption"  %><br />
 
-      <%= f.text_field :author, class: "form-control", placeholder: "Photo credit"  %>
+      <%= f.text_field :author, class: "form-control", placeholder: "Photo credit"  %><br />
 
-      <%= f.file_field :images, multiple: true, direct_upload: true %>
+      <%= f.file_field :images, multiple: true, direct_upload: true %><br />
 
-    <%= f.submit class: "btn btn-secondary" %>
-<% end %>
+      <%= f.submit class: "btn btn-secondary" %>
+    <% end %>
   </div>
 </div>

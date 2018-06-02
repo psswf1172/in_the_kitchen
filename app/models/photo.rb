@@ -1,4 +1,4 @@
-class Photo < ApplicationRecord
+class Photo < Post
   has_many_attached :images
 
   scope :with_eager_loaded_image, -> { eager_load(image_attachment: :blob) }
@@ -8,4 +8,5 @@ class Photo < ApplicationRecord
 
   # validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   
+  has_many :comments, as: :commentable
 end

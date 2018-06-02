@@ -1,27 +1,35 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
   
   def create
-    @recipe = Recipe.find(params[:recipe_id])
-    @comment = @recipe.comments.create(comment_params)
-    @comment.user = current_user
-    if @comment.save
-      redirect_to recipe_path(@recipe)
+    @commentable = find_commentable
+    @comment = @commentable.comments.build(comment_params)
+    @comment.user_id = current_user.id
+    if @comment.save!
+      redirect_to recipe_path(@commentable)
     else
-      redirect_to recipe_path(@recipe), :notice => "oops! "
+      redirect_to recipe_path(@commentable), :notice => "oops! "
     end
   end
 
   def destroy
-    @recipe = Recipe.find(params[:recipe_id])
-    @comment = @recipe.comments.find(params[:id])
+    @commentable = find_commentable
+    @comment = @commentable.comments.find(params[:id])
     @comment.destroy
-    redirect_to recipe_path(@recipe)
+    redirect_to recipe_path(@commentable)
   end
 
   private
+  def find_commentable
+    params.each do | name, value |
+      if name =~/(.+)_id$/
+        return $1.classify.constantize.find(value)
+      end
+    end
+    nil
+  end
+
   def comment_params
-    params.require(:comment).permit(:user_id, :body, :recipe_id)
+    params.require(:comment).permit(:body)
   end
 
 end

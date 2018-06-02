@@ -1,5 +1,4 @@
 class PhotosController < ApplicationController
-  before_action :authenticate_user!
 
   def index
     @photos = Photo.with_attached_images # instead of .all to save trips to DB
@@ -40,7 +39,7 @@ class PhotosController < ApplicationController
 
   private
   def photo_params
-    params.require(:photo).permit(:title, :author, :description, :_destroy, images: [])
+    params.require(:photo).permit(:title, :author, :description, :all_tags, :_destroy, images: [])
   end
 
 end

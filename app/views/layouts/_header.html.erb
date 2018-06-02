@@ -7,28 +7,13 @@
     <ul class="navbar-nav ml-auto">
 
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/recipes" role="button" aria-haspopup="true" aria-expanded="false">Recipes</a>
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/" role="button" aria-haspopup="true" aria-expanded="false">Post</a>
         <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 37px, 0px); top: 0px; left: 0px; will-change: transform;">
-          <a class="dropdown-item" href="/recipes">See all recipes</a>
-          <a class="dropdown-item" href="/recipes/new">Add a recipe</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="/recipes/new">A recipe</a>
+          <a class="dropdown-item" href="/photos/new">A photo</a>
+          <a class="dropdown-item" href="/stories/new">A story</a>
       </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/photos" role="button" aria-haspopup="true" aria-expanded="false">Photos</a>
-        <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 37px, 0px); top: 0px; left: 0px; will-change: transform;">
-          <a class="dropdown-item" href="/photos">See all photos</a>
-          <a class="dropdown-item" href="/photos/new">Add a photo</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/stories" role="button" aria-haspopup="true" aria-expanded="false">Stories</a>
-        <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 37px, 0px); top: 0px; left: 0px; will-change: transform;">
-          <a class="dropdown-item" href="/stories">See all stories</a>
-          <a class="dropdown-item" href="/stories/new">Add a story</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-      </li>      
+      
       <li class="nav-item"></li>
       <% if user_signed_in? %>
          <li class="nav-item">

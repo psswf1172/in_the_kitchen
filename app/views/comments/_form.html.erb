@@ -1,10 +1,14 @@
 <div class="card">
   <div class="card-body">
-    <%= form_with(model: [ @recipe, @recipe.comments.build ], local: true) do |form| %>
-      <div class="form-group">
-        <%= form.text_area :body, class: "form-control", placeholder: "Description" %><br />
-        <%= form.submit :class => "btn btn-secondary" %>
-      </div>
-    <% end %>
+    <div class="form-group">
+      <%= form_for([object, object.comments.build])  do | f | %>
+
+        
+
+        <%= f.text_area :body, class: "form-control", placeholder: "Your comment here..." %><br />
+
+        <%= f.submit :class => "btn btn-secondary", placeholder: "Create comment" %>
+      <% end %>
+    </div>
   </div>
 </div>
