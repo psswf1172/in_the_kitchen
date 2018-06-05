@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card border-warning">
   <div class="card-body">
     <%= form_with scope: :photo, url: photos_path, local: true do | f | %>
 
@@ -11,6 +11,9 @@
       <%= f.text_field :author, class: "form-control", placeholder: "Photo credit"  %><br />
 
       <%= f.file_field :images, multiple: true, direct_upload: true %><br />
+      <br />
+      <p><strong>Tags:</strong></p>
+        <%= f.text_field :all_tags, class: "form-control", placeholder: "Add comma-separated list of tags (like bread, the main dish, etc,)" %><br /><br />
 
       <%= f.submit class: "btn btn-secondary" %>
     <% end %>

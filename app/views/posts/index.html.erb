@@ -3,7 +3,13 @@
   <div class="container col-6">
     <% @posts.each do | post | %>
 
-      <div class="card"> 
+      <% if post.type == "Recipe" %>
+        <div class="card border-danger">
+      <% elsif post.type == "Story" %>
+        <div class="card border-success">
+      <% else %>
+        <div class="card border-warning">
+      <% end %>
         <div class="card-body">
           <h4 class="card-title"><%= link_to post.title, "#{post.type.downcase}s/#{post.id}" %></h4>
           <h6 class="card-subtitle mb-2 text-muted"><%= post.author %></h6>

@@ -3,11 +3,16 @@
   <div class="container col-6">
     <% @photos.each do |photo| %>
 
-      <div class="card"> 
+      <div class="card border-warning"> 
         <div class="card-body">
           
           <h6 class="card-subtitle mb-2 text-muted"><%= photo.description %></h6>
-            
+            <p><% photo.tags.each do |tag| %>
+              <span class="badge badge-pill badge-danger">
+                <%= tag.name %> 
+              </span>
+              <% end %>
+            </p> 
         </div>
       </div>
 
