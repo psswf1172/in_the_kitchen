@@ -6,17 +6,12 @@ Rails.application.routes.draw do
 
   get "welcome/index"
 
-  resources :posts
+  resources :posts 
 
-  resources :photos
-
-  resources :recipes do
+  resources :photos, :recipes, :stories do
     resources :comments
-    resources :ingredients
-    resources :instructions
   end
 
-  resources :stories
 
   get "tags/:tag", to: "recipes#index", as: "tag"
 

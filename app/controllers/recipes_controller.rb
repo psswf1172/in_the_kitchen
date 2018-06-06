@@ -34,7 +34,7 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update_attributes(recipe_params)
-      redirect_to @recipe
+      redirect_to @recipe, notice: "Your recipe has been updated!"
     else
       render "edit"
     end
@@ -48,6 +48,6 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:title, :description, :author, :all_tags, ingredients_attributes: [:quantity, :measurement, :name, :description, :_destroy], instructions_attributes: [:description, :_destroy])
+    params.require(:recipe).permit(:id, :title, :description, :author, :all_tags, ingredients_attributes: [:id, :quantity, :measurement, :name, :description, :_destroy], instructions_attributes: [:id, :description, :_destroy])
   end 
 end

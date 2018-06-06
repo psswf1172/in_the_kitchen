@@ -1,15 +1,15 @@
 <div class="row">
   <div class="container col-3"></div>
   <div class="container col-6">
-    <h1>Photo</h1> 
+    <h1><%= @photo.title.capitalize %></h1>
       <% if @photo.images.attached? %>
         <% @photo.images.each do | image | %>
-        
           <%= image_tag image.variant(resize: "500x500") %>
-        
-          
         <% end %>
       <% end %>
+      <br /><br />
+      <h6 class="card-subtitle mb-2 text-muted">Posted by: <%= @photo.author %></h6>
+      <p class="card-text"><%= @photo.description %></p>
     </div>
   <div class="container col-3"></div>
 </div>

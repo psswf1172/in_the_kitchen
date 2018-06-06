@@ -5,9 +5,9 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.build(comment_params)
     @comment.user_id = current_user.id
     if @comment.save!
-      redirect_to recipe_path(@commentable)
+      redirect_to @commentable
     else
-      redirect_to recipe_path(@commentable), :notice => "oops! "
+      redirect_to post_path(@commentable), :notice => "oops! "
     end
   end
 
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     @commentable = find_commentable
     @comment = @commentable.comments.find(params[:id])
     @comment.destroy
-    redirect_to recipe_path(@commentable)
+    redirect_to post_path(@commentable)
   end
 
   private
@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:id, :body)
   end
 
 end

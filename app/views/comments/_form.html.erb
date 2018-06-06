@@ -1,12 +1,8 @@
 <div class="card">
   <div class="card-body">
     <div class="form-group">
-      <%= form_for([object, object.comments.build])  do | f | %>
-
-        
-
+      <%= form_for [object, object.comments.build]  do | f | %>
         <%= f.text_area :body, class: "form-control", placeholder: "Your comment here..." %><br />
-
         <%= f.submit :class => "btn btn-secondary", placeholder: "Create comment" %>
       <% end %>
     </div>

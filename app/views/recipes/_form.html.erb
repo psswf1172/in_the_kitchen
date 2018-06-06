@@ -10,8 +10,8 @@
 
     <p><strong>Ingredients:</strong></p>
       <div id="ingredients">
-        <%= f.fields_for :ingredients do | ingredient | %>
-          <% render "ingredients_fields", f: ingredient %>
+        <%= f.fields_for :ingredients, @recipe.ingredients.build do | ingredient | %>
+          <% render "ingredient_fields", f: ingredient %>
         <% end %>
       </div>
       <div class="links">
@@ -20,8 +20,8 @@
   
     <p><strong>Instructions:</strong></p>
       <div id="instructions">
-        <%= f.fields_for :instructions do | instruction | %>
-          <% render "instructions_fields", f: instruction %>
+        <%= f.fields_for :instructions, @recipe.instructions.build do | instruction | %>
+          <% render "instruction_fields", f: instruction %>
         <% end %>
       </div>
       <div class="links">

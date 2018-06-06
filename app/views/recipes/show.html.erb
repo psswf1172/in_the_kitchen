@@ -13,7 +13,11 @@
   <div class="container col-3"></div>
   <div class="container col-6">  
     <h4>Ingredients</h4>
-    <p><%= render @recipe.ingredients %></p>
+      <% for ingredient in @recipe.ingredients %>
+      <p>
+        <%= ingredient.quantity %> <%= ingredient.measurement %> <%= ingredient.name %> <%= ingredient.description %>
+      </p>
+      <% end %>
   </div>
   <div class="container col-3"></div>
 </div>
@@ -24,7 +28,11 @@
   <div class="container col-3"></div>
   <div class="container col-6">
     <h4>Instructions </h4>
-    <p class="instructions"><%= render @recipe.instructions %></p>
+      <% for instruction in @recipe.instructions %>
+      <p>
+        <%= instruction.description %>
+      </p>
+      <% end %>
   </div>
   <div class="container col-3"></div>
 </div>
@@ -35,15 +43,13 @@
   <div class="container col-3"></div>
   <div class="container col-6">
     <% @recipe.tags.each do |tag| %>
-      <span class="badge badge-pill badge-success">
-        <a href="/"><%= tag.name %></a>
-      </span>
+      <span class="badge badge-pill badge-danger"><%= tag.name %></span>
     <% end %>
   </div>
   <div class="container col-3"></div>
 </div>
 
-<br>
+<br />
 <br />
 
 <div class="row">

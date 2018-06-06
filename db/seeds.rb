@@ -20,3 +20,4 @@ Tag.create(name: "the mixed bag")
 Tag.create(name: "sauce")
 Tag.create(name: "side")
 Tag.create(name: "drink")
+

@@ -2,8 +2,6 @@ require 'rails_helper'
 require 'pry'
 
 RSpec.describe RecipesController, type: :controller do
-  render_views
-  subject { RecipesController.new }
   
   describe "#create" do  
     context "success cases" do

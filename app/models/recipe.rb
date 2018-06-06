@@ -1,10 +1,10 @@
 class Recipe < Post
 
-  has_many :ingredients, dependent: :destroy
+  has_many :ingredients, inverse_of: :recipe, dependent: :destroy
   accepts_nested_attributes_for :ingredients, allow_destroy: true, 
                                 reject_if: :all_blank
                             
-  has_many :instructions, dependent: :destroy
+  has_many :instructions, inverse_of: :recipe, dependent: :destroy
   accepts_nested_attributes_for :instructions, allow_destroy: true, 
                                 reject_if: :all_blank
 

@@ -10,7 +10,9 @@
 
 
       <%= f.text_area :description, class: "form-control", placeholder: "Tell your story..." %><br />
-   
+     
+      <p><strong>Tags:</strong></p>
+        <%= f.text_field :all_tags, class: "form-control", placeholder: "Add comma-separated list of tags (like bread, the main dish, etc,)" %><br /><br />
 
       <%= f.submit class: "btn btn-secondary" %>
 
