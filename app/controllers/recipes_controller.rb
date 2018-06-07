@@ -1,11 +1,7 @@
 class RecipesController < ApplicationController
 
   def index
-    if params[:tag]
-      @recipes = Recipe.tagged_with(params[:tag])
-    else
-      @recipes = Recipe.all
-    end
+    @recipes = Recipe.order(:updated_at).reverse
   end
 
   def show

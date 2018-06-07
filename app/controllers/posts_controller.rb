@@ -1,7 +1,15 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all #try order_by to sort by most recent
+    @posts = Post.order(:updated_at).reverse
+  end
+
+  def search
+    query = params[:search_posts].presence && params[:search_posts][:query]
+
+    if query
+      @posts = Post.search_published(query)
+    end
   end
 
   private

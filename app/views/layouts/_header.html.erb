@@ -21,10 +21,14 @@
     </ul>
   
     <ul class="navbar-nav ml-auto">      
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-sm my-2 my-sm-0" type="submit">Search</button>
-    </form>
+      <div class="form-inline my-2 my-lg-0">
+        <%= form_for :search_posts, url: search_posts_path, method: :get do |form| %>
+          <%= form.text_field :query, class: "form-control mr-sm-2", placeholder: "Search",value: params[:search_posts].presence && params[:search_posts][:query] %>
+          <%= form.submit "Search", class: "btn btn-sm my-2 my-sm-0" %>
+        <% end %>
+<!--         <span class="glyphicon glyphicon-search"></span>
+ -->     </div>
+
       <li class="nav-item"></li>
         <% if user_signed_in? %>
           <%= link_to image_tag(current_user.image),  edit_user_registration_path, :class=> "nav-link" %>

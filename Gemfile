@@ -12,6 +12,8 @@ gem 'rails', '~> 5.2'
 gem 'aws-sdk-s3', require: false
 gem 'bootstrap', '~> 4.1.1'
 gem 'cocoon', '~> 1.2', '>= 1.2.11'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 gem 'jquery-rails'
 gem 'mini_magick'
 # Use postgreSQL as the database for Active Record

@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
 
   def index
-    @photos = Photo.with_attached_images # instead of .all to save trips to DB
+    @photos = Photo.with_attached_images.order(:updated_at).reverse
   end
 
   def show
@@ -10,6 +10,10 @@ class PhotosController < ApplicationController
 
   def new
     @photo = Photo.new
+  end
+  
+  def edit
+    @photo = Photo.find(params[:id])
   end
 
   def create

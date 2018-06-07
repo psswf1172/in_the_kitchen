@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   get "welcome/index"
 
-  resources :posts 
+  resources :posts do
+    collection do
+      get :search
+    end
+  end
 
   resources :photos, :recipes, :stories do
     resources :comments
