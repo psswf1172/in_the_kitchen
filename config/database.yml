@@ -1,12 +1,12 @@
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  database: <%= ENV["POSTGRES_DEV_DB"] %>
-  username: <%= ENV["POSTGRES_USER"] %>
-  password: <%= ENV["POSTGRES_PASSWORD"] %>
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-  host: <%= ENV["POSTGRES_HOST"] %>
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   database: <%= ENV["POSTGRES_DEV_DB"] %>
+#   username: <%= ENV["POSTGRES_USER"] %>
+#   password: <%= ENV["POSTGRES_PASSWORD"] %>
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   timeout: 5000
+#   host: <%= ENV["POSTGRES_HOST"] %>
 
 development:
   <<: *default
