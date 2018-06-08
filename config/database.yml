@@ -8,7 +8,7 @@ default: &default
   timeout: 5000
   host: <%= ENV["POSTGRES_HOST"] %>
 
-in-the-kitchen-dev:
+development:
   <<: *default
   adapter: postgresql
   encoding: unicode
