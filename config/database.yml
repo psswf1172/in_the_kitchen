@@ -22,10 +22,10 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  # <<: *default
+  <<: *development
   database: <%= ENV["POSTGRES_TEST_DB"] %>
 
 production:
-  # <<: *default
+  <<: *development
   database: <%= ENV["POSTGRES_PROD_DB"] %>
 
