@@ -9,7 +9,7 @@
 #   host: <%= ENV["POSTGRES_HOST"] %>
 
 development:
-  <<: *default
+  # <<: *default
   adapter: postgresql
   encoding: unicode
   database: <%= ENV["RDS_DB_NAME"] %>
@@ -22,10 +22,10 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
+  # <<: *default
   database: <%= ENV["POSTGRES_TEST_DB"] %>
 
 production:
-  <<: *default
+  # <<: *default
   database: <%= ENV["POSTGRES_PROD_DB"] %>
 
