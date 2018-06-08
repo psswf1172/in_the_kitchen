@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(version: 2018_06_05_162425) do
   end
 
   create_table "instructions", force: :cascade do |t|
-    t.bigint "recipe_id"
     t.text "description"
+    t.bigint "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_instructions_on_recipe_id"
