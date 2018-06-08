@@ -4,6 +4,7 @@ rails_env = Rails.env || 'development'
 redis_config = YAML.load_file(rails_root.to_s + '/config/redis.yml')
 redis_config.merge! redis_config.fetch(Rails.env, {})
 redis_config.symbolize_keys!
+# See https://stackoverflow.com/questions/45674064/ruby-redis-skidekiq-uriinvalidurierror-the-scheme-redis-does-not-accept-r
 # Sidekiq.configure_server do |config|
 #  config.redis = { url: "redis://#{redis_config[:host]}:#{redis_config[:port]}/12" }
 # end
