@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root "posts#index"
 
-  get "welcome/index"
+  get "home/privacy-policy", to: "home#privacy-policy"
 
   resources :posts do
     collection do
