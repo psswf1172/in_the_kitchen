@@ -9,6 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2'
 
+gem 'aws-sdk'
 gem 'aws-sdk-s3', require: false
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap', '~> 4.1.1'
@@ -33,6 +34,7 @@ gem 'pg'
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'searchkick'
 gem 'sidekiq'
 # Use Uglifier as compressor for JavaScript assets
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

@@ -7,10 +7,10 @@ class Post < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings, dependent: :destroy
 
+  searchkick
+
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
-
-  searchkick inheritance: true
 
   settings do
     mappings dynamic: false do
@@ -20,21 +20,6 @@ class Post < ApplicationRecord
     end
   end
 
-  def self.search_published(query)
-    self.search({
-      query: {
-        bool: {
-          must: [
-            {
-              multi_match: {
-                query: query,
-                fields: [:author, :title, :description, :tags]
-              }
-            }]
-        }
-      }
-    })
-  end
 
   def self.tagged_with(name)
     Tag.find_by_name!(name).recipes
