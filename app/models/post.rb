@@ -10,6 +10,8 @@ class Post < ApplicationRecord
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  searchkick inheritance: true
+
   settings do
     mappings dynamic: false do
       indexes :author, type: :text

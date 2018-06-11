@@ -57,7 +57,7 @@
   <div class="container col-6">
     <% if current_user == @recipe.user %>
       <button type="button" class="btn btn-secondary">
-        <%= link_to 'Edit Recipe', edit_recipe_path(@recipe) %>
+        <%= link_to 'Edit Recipe', edit_recipe_path(@recipe), method: :patch %>
       </button>
 
       <button type="button" class="btn btn-secondary">
