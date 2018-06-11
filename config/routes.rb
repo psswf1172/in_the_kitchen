@@ -4,7 +4,15 @@ Rails.application.routes.draw do
 
   root "posts#index"
 
-  get "home/privacy-policy", to: "home#privacy-policy"
+
+  get "/acknowledgments", to: "home#acknowledgments"
+  get "/contact", to: "home#contact"
+  get "/contributors", to: "home#contributors"
+  get "/copyright", to: "home#copyright"
+  get "/dedication", to: "home#dedication"
+  get "/original-dedication", to: "home#original-dedication"
+  get "/privacy-policy", to: "home#privacy-policy"
+  get "/terms-of-service", to: "home#terms-of-service"
 
   resources :posts do
     collection do

@@ -76,6 +76,7 @@ body {
   color: #919aa1;
   text-align: left;
   background-color: #fff;
+  height: 100vh;
 }
 
 [tabindex="-1"]:focus {
