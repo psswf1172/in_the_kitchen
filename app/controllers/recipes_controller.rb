@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
     @recipe.user_id = current_user.id
     if @recipe.author.blank? then @recipe.author = current_user.id end
     if @recipe.save
+      Post.reindex
       redirect_to @recipe, notice: "Recipe saved!"
     else
       render "new"
