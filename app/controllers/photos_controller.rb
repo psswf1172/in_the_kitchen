@@ -30,7 +30,7 @@ class PhotosController < ApplicationController
 
   def update
     @photo = Photo.find(params[:id])
-    if @recipe.update_attributes(photo_params)
+    if @photo.update_attributes(photo_params)
       redirect_to @photo, notice: "Photo updated!"
     else
       render "edit"
