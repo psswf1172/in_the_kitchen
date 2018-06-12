@@ -21,9 +21,14 @@
               <tbody>
                 <% @posts.results.each do |post| %>
                     <tr>
-                      <td><%= link_to post.title, controller: "#{post.type.downcase}s", action: "show", id: "#{post.id}" %></td>                      
-                      <td><%= post.author %></td>
+                      <% if post.type == "Story" %>
+                        <td><%= link_to post.title, controller: "#{post.type.gsub("y", "ie").downcase}s", action: "show", id: "#{post.id}" %></td>                      
+                        <td><%= post.author %></td>
+                      <% else %>
                       
+                        <td><%= link_to post.title, controller: "#{post.type.downcase}s", action: "show", id: "#{post.id}" %></td>                      
+                        <td><%= post.author %></td>
+                      <% end %>
                     </tr>
                   </a>
                 <% end %>

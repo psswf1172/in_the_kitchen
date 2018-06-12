@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:id)
+    params.require(:post).permit(:id, :_destroy)
   end
 
 end

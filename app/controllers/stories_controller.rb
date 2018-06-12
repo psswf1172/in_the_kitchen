@@ -20,6 +20,7 @@ class StoriesController < ApplicationController
     @story = Story.new(story_params)
     @story.user_id = current_user.id
     if @story.author.blank? then @story.author = current_user.id end
+    @story.save!
     if @story.save
       Post.reindex
       redirect_to @story, notice: "You're in the books, story teller!"

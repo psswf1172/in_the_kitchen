@@ -19,6 +19,7 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
     @photo.user_id = current_user.id
+    @photo.save!
     if @photo.save
       Post.reindex
       redirect_to @photo, notice: "Photo saved!"
@@ -37,8 +38,7 @@ class PhotosController < ApplicationController
   end
 
   def destroy
-    @photo = Photo.find(params[:id])
-    @photo.destroy
+    @photo = Photo.find(params[:id]).destroy
     redirect_to photos_path
   end
 
