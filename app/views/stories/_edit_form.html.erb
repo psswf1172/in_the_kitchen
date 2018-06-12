@@ -1,0 +1,21 @@
+<div class="card border-success">
+  <div class="card-body">
+    <%= form_with scope: :story, url: stories_path, local: true do | f | %>
+
+    <%= render "shared/errors", object: @story %>
+
+      <%= f.text_field :title, class: "form-control", placeholder: "Story Title" %><br />
+
+      <%= f.text_field :author, class: "form-control", placeholder: "Author" %><br />
+
+
+      <%= f.text_area :description, class: "form-control", placeholder: "Tell your story..." %><br />
+     
+      <p><strong>Tags:</strong></p>
+        <%= f.text_field :all_tags, class: "form-control", placeholder: "Add comma-separated list of tags (like bread, the main dish, etc,)" %><br /><br />
+
+      <%= f.submit class: "btn btn-secondary" %>
+
+<% end %>
+  </div>
+</div>
