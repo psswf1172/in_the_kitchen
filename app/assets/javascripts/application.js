@@ -17,4 +17,9 @@
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require cocoon
+//= require wysihtml
+//= require wysihtml/toolbar
+//= require wysihtml/all_commands
+//= require wysihtml/parser_rules/advanced_unwrap
+//= require wysihtml/table_editing
 //= require_tree .

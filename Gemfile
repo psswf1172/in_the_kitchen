@@ -21,7 +21,7 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'faraday_middleware-aws-sigv4'
 gem 'gemoji-parser'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'wysihtml-rails', :git => 'https://github.com/Voog/wysihtml-rails.git'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'mini_magick'

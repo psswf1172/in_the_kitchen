@@ -2,7 +2,19 @@
   <div class="card-body">
     <div class="form-group">
       <%= form_for [object, object.comments.build]  do | f | %>
-        <%= f.text_area :body, class: "form-control", placeholder: "Your comment here..." %><br />
+
+      <div id="wysihtml-toolbar" style="display: none;"> 
+        <button type="button" class="btn btn-secondary btn-sm" data-wysihtml-command="bold"><strong>bold</strong></button>
+        <button type="button" class="btn btn-secondary btn-sm" data-wysihtml-command="italic"><i>italic</i></button>
+        <button  type="button" class="btn btn-secondary btn-sm" data-wysihtml-command="underline"><u>underline</u></button>
+          
+        <!-- Some wysihtml5 commands require extra parameters -->
+        <button type="button" class="btn btn-secondary btn-sm" data-wysihtml-command="foreColor" data-wysihtml-command-value="red" style="color: #d9534f">red</button>
+        <button type="button" class="btn btn-secondary btn-sm" data-wysihtml-command="foreColor" data-wysihtml-command-value="green" style="color: #4BBF73">green</button>
+        <button type="button" class="btn btn-secondary btn-sm" data-wysihtml-command="foreColor" data-wysihtml-command-value="blue" style="color: #007bff">blue</button>
+      </div>
+
+        <%= f.text_area :body, class: "form-control", placeholder: "Your comment here...", id: "editable" %><br />
         <%= f.submit :class => "btn btn-secondary", placeholder: "Create comment" %>
       <% end %>
     </div>

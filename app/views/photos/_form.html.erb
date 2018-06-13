@@ -6,7 +6,18 @@
 
       <%= f.text_field :title, class: "form-control", placeholder: "Photo Title"  %><br />
 
-      <%= f.text_field :description, class: "form-control", placeholder: "Caption"  %><br />
+      <div id="wysihtml-toolbar" style="display: none;"> 
+        <button type="button" class="btn btn-secondary btn-sm" data-wysihtml-command="bold"><strong>bold</strong></button>
+        <button type="button" class="btn btn-secondary btn-sm" data-wysihtml-command="italic"><i>italic</i></button>
+        <button  type="button" class="btn btn-secondary btn-sm" data-wysihtml-command="underline"><u>underline</u></button>
+          
+        <!-- Some wysihtml5 commands require extra parameters -->
+        <button type="button" class="btn btn-secondary btn-sm" data-wysihtml-command="foreColor" data-wysihtml-command-value="red" style="color: #d9534f">red</button>
+        <button type="button" class="btn btn-secondary btn-sm" data-wysihtml-command="foreColor" data-wysihtml-command-value="green" style="color: #4BBF73">green</button>
+        <button type="button" class="btn btn-secondary btn-sm" data-wysihtml-command="foreColor" data-wysihtml-command-value="blue" style="color: #007bff">blue</button>
+      </div>
+
+      <%= f.text_area :description, class: "form-control", placeholder: "Caption", id: "editable" %><br />
 
       <%= f.text_field :author, class: "form-control", placeholder: "Photo credit"  %><br />
 

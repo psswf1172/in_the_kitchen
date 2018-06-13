@@ -8,6 +8,8 @@
       <%= f.text_area :description, class: "form-control", placeholder: "Description" %><br />
       <%= f.text_field :author, class: "form-control", placeholder: "Recipe Author" %><br />
 
+
+
     <p><strong>Ingredients:</strong></p>
       <div id="ingredients">
         <%= f.fields_for :ingredients, @recipe.ingredients.build do | ingredient | %>

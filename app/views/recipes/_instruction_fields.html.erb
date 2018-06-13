@@ -1,7 +1,18 @@
 <div class="nested-fields">
   <div class="row">
     <div class="field col-10">
-      <%= f.text_area :description, class: "form-control", placeholder: "Enter work step"    %>
+      <div id="wysihtml-toolbar" style="display: none;"> 
+        <button type="button" class="btn btn-secondary btn-sm" data-wysihtml-command="bold"><strong>bold</strong></button>
+        <button type="button" class="btn btn-secondary btn-sm" data-wysihtml-command="italic"><i>italic</i></button>
+        <button  type="button" class="btn btn-secondary btn-sm" data-wysihtml-command="underline"><u>underline</u></button>
+          
+        <!-- Some wysihtml5 commands require extra parameters -->
+        <button type="button" class="btn btn-secondary btn-sm" data-wysihtml-command="foreColor" data-wysihtml-command-value="red" style="color: #d9534f">red</button>
+        <button type="button" class="btn btn-secondary btn-sm" data-wysihtml-command="foreColor" data-wysihtml-command-value="green" style="color: #4BBF73">green</button>
+        <button type="button" class="btn btn-secondary btn-sm" data-wysihtml-command="foreColor" data-wysihtml-command-value="blue" style="color: #007bff">blue</button>
+      </div>
+      
+      <%= f.text_area :description, class: "form-control", placeholder: "Enter work step", id: "editable" %>
         
     </div>
     <div class="col-2" style="margin: auto; width: 75%"><%= link_to_remove_association "Remove", f %>
