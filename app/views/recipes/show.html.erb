@@ -1,7 +1,7 @@
 <div class="jumbotron">
   <h1><%= @recipe.title %></h1>  
   <hr class="my-4">
-  <p><%= @recipe.description %></p>
+  <p class="fr-view"><%= raw @recipe.description %></p>
   <p class="lead">
     <i><%= @recipe.author %></i>
   </p>
@@ -75,7 +75,7 @@
   <div class="container col-3"></div>
   <div class="container col-6">
     <h5>Comments</h5>
-      <%= render @recipe.comments %>
+      <div class="fr-view"><%= render @recipe.comments %></div>
   </div>
   <div class="container col-3"></div>
 </div>
@@ -88,7 +88,7 @@
     <h6>Add a Comment</h6>
     
       <%= render "comments/form", object: @recipe %>
-
+      <%= render "shared/edit_toolbar" %>
   </div>
   <div class="container col-3"></div>
 </div>

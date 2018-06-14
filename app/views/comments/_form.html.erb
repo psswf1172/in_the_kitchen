@@ -3,8 +3,9 @@
     <div class="form-group">
       <%= form_for [object, object.comments.build]  do | f | %>
 
-        <%= f.text_area :body, class: "form-control", placeholder: "Your comment here..."%><br />
+        <%= f.text_area :body, class: "form-control", placeholder: "Your comment here...", id: "wysiwyg" %><br /> 
         <%= f.submit :class => "btn btn-secondary", placeholder: "Create comment" %>
+        
       <% end %>
     </div>
   </div>

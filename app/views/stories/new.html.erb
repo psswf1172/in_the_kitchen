@@ -2,7 +2,8 @@
   <div class="container col-2"></div>
   <div class="container col-6">
     <br /><h5>Write your story</h5>
-
+      <%= render "shared/edit_toolbar" %>
+      
       <%= render "form", object: @story %>
 
       <button type="button" class="btn btn-secondary">

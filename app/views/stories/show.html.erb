@@ -11,8 +11,7 @@
 <div class="row">
   <div class="container col-3"></div>
   <div class="container col-6">  
-    <h4></h4>
-    <p><%= render html: @story.description %></p>
+    <p class="fr-view"><%= raw @story.description %></p>
   </div>
   <div class="container col-3"></div>
 </div>
@@ -40,7 +39,7 @@
       </button>
 
       <button type="button" class="btn btn-secondary">
-        <%= link_to 'Delete Story', recipe_path(@story), method: :delete, data: { confirm: "Are you sure?" } %>
+        <%= link_to 'Delete Story', story_path(@story), method: :delete, data: { confirm: "Are you sure?" } %>
       </button>
     <% end %>
   </div>

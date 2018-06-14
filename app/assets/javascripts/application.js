@@ -13,8 +13,12 @@
 //= require rails-ujs
 //= require popper
 //= require jquery3
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrap
+//= require froala_editor.min.js
+//= require plugins/colors.min.js
+//= require plugins/emoticons.min.js
+//= require plugins/link.min.js
 //= require cocoon
+//= xxxrequire turbolinks
 //= require_tree .

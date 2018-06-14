@@ -17,7 +17,7 @@
                 
               <% end %>
 
-            <p class="card-text"><%= photo.description %></p>
+            <p class="card-text fr-view"><%= raw photo.description %></p>
             <p><% photo.tags.each do |tag| %>
               <span class="badge badge-pill badge-warning">
                 <%= tag.name %> 

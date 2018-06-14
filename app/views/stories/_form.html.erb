@@ -6,16 +6,17 @@
 
       <%= f.text_field :title, class: "form-control", placeholder: "Story Title" %><br />
       
-      <div id="froala-editor">
-        <%= f.text_field :author, class: "form-control", placeholder: "Author" %>
-      </div><br />
+      <%= f.text_field :author, class: "form-control", placeholder: "Author" %><br />
 
-      <%= f.text_area :description, class: "form-control", placeholder: "Tell your story..." %><br />
+      <%= f.text_area :description, class: "form-control", placeholder: "Tell your story...", id: "wysiwyg" %>
+      <br />
      
       <p><strong>Tags:</strong></p>
         <%= f.text_field :all_tags, class: "form-control", placeholder: "Add comma-separated list of tags (like bread, the main dish, etc,)" %><br /><br />
 
       <%= f.submit class: "btn btn-secondary" %>
+
+      <%= render "shared/edit_toolbar" %>
 
 <% end %>
   </div>
