@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   get "/contributors", to: "home#contributors"
   get "/copyright", to: "home#copyright"
   get "/dedication", to: "home#dedication"
-  get "/original-dedication", to: "home#original-dedication"
   get "/privacy-policy", to: "home#privacy-policy"
   get "tags/:tag", to: "recipes#index", as: "tag"
   get "/terms-of-service", to: "home#terms-of-service"
