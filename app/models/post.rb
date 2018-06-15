@@ -7,6 +7,8 @@ class Post < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings, dependent: :destroy
 
+  # has_many :comments, as: :commentable
+
   searchkick
 
   include Elasticsearch::Model
