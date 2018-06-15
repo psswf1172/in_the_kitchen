@@ -18,6 +18,7 @@
 //= require froala_editor.min.js
 //= require plugins/colors.min.js
 //= require plugins/emoticons.min.js
+//= require plugins/image.min.js
 //= require plugins/link.min.js
 //= require cocoon
 //= xxxrequire turbolinks

@@ -23,4 +23,6 @@ Rails.application.routes.draw do
   get "tags/:tag", to: "recipes#index", as: "tag"
   get "/terms-of-service", to: "home#terms-of-service"
 
+  post '/upload_image' => 'upload#upload_image', :as => :upload_image
+
 end

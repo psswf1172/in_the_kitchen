@@ -1,4 +1,4 @@
-ENV["ELASTICSEARCH_URL"] = "https://search-in-the-kitchen-7viustmbj6cwtqamywrdvvrmx4.us-east-1.es.amazonaws.com"
+# ENV["ELASTICSEARCH_URL"] = "https://search-in-the-kitchen-7viustmbj6cwtqamywrdvvrmx4.us-east-1.es.amazonaws.com"
 
 Elasticsearch::Model.client = Elasticsearch::Client.new({
   log: true 
