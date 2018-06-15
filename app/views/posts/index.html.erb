@@ -15,7 +15,7 @@
         <div class="card-body">
           <h4 class="card-title"><%= link_to post.title, "#{post.type.downcase}s/#{post.id}" %></h4>
           <h6 class="card-subtitle mb-2 text-muted"><%= post.author %></h6>
-            <p class="card-text"><%= post.description %></p>
+            <p class="card-text fr-view"><%= raw post.description %></p>
               <% if (post.type == "Photo") && (post.images.attached?) %>
                 <%= image_tag post.images.first.variant(resize: "500 x 500") %>
               <% end %>
