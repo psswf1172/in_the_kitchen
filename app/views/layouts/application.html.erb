@@ -85,6 +85,7 @@
     <!-- script for FROALA-WYSIWYG -->
     <script>
       $('#wysiwyg').froalaEditor({
+        key: ENV["KOALA_ACTIVATION_KEY"],
         inlineMode: false,
         heightMin: '200px',
         toolbarButtons: ['bold', 'italic', 'underline'],
