@@ -40,7 +40,6 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    # binding.pry
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
     redirect_to recipes_path

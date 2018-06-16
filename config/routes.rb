@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+  
+  # devise_scope :user do
+  #   get "sign_in", to: "devise/sessions#new", as: :new_user_session
+  #   get "sign_out", to: "devise/sessions#destroy", as: :destroy_user_session
+  # end
 
   root "posts#index"
 
@@ -23,7 +28,7 @@ Rails.application.routes.draw do
   get "tags/:tag", to: "recipes#index", as: "tag"
   get "/terms-of-service", to: "home#terms-of-service"
 
-  post '/upload_image' => 'upload#upload_image', :as => :upload_image
+  post "/upload_image" => "upload#upload_image", :as => :upload_image
   get "/download_file/:name" => "upload#access_file", :as => :upload_access_file, :name => /.*/
 
 end

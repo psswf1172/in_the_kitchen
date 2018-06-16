@@ -27,6 +27,7 @@ gem 'mini_magick', '~>4.8.0'
 gem 'oj' #speed up JSON generation and parsing
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2' # git: 'https://github.com/zquestz/omniauth-google-oauth2.git'
 # Use postgreSQL as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
