@@ -4,13 +4,13 @@ class PostsController < ApplicationController
     @posts = Post.order(:updated_at).reverse
   end
 
-  def search
-    query = params[:search_posts].presence && params[:search_posts][:query]
+  # def search
+  #   query = params[:search_posts].presence && params[:search_posts][:query]
 
-    if query
-      @posts = Post.search(query)
-    end
-  end
+  #   if query
+  #     @posts = Post.search(query)
+  #   end
+  # end
 
   private
   def post_params

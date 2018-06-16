@@ -7,20 +7,18 @@ class Post < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings, dependent: :destroy
 
-  # has_many :comments, as: :commentable
+  # searchkick
 
-  searchkick
+  # include Elasticsearch::Model
+  # include Elasticsearch::Model::Callbacks
 
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
-
-  settings do
-    mappings dynamic: false do
-      indexes :author, type: :text
-      indexes :title, type: :text, analyzer: :english
-      indexes :description, type: :text, analyzer: :english
-    end
-  end
+  # settings do
+  #   mappings dynamic: false do
+  #     indexes :author, type: :text
+  #     indexes :title, type: :text, analyzer: :english
+  #     indexes :description, type: :text, analyzer: :english
+  #   end
+  # end
 
 
   def self.tagged_with(name)

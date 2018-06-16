@@ -21,7 +21,6 @@ class PhotosController < ApplicationController
     @photo.user_id = current_user.id
     @photo.save!
     if @photo.save
-      Post.reindex
       redirect_to @photo, notice: "Photo saved!"
     else
       render "new"

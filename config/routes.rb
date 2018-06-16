@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   root "posts#index"
 
   resources :posts do
-    collection do
-      get :search
-    end
+    # collection do
+    #   get :search
+    # end
   end
 
   resources :photos, :recipes, :stories do
@@ -24,5 +24,6 @@ Rails.application.routes.draw do
   get "/terms-of-service", to: "home#terms-of-service"
 
   post '/upload_image' => 'upload#upload_image', :as => :upload_image
+  get "/download_file/:name" => "upload#access_file", :as => :upload_access_file, :name => /.*/
 
 end

@@ -22,10 +22,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.1/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.1/css/froala_style.min.css" rel="stylesheet" type="text/css" />
 
-
-    <!-- CSS rules for styling the element inside the editor such as p, h1, h2, etc. -->
-    <link href="/froala_style.min.css" rel="stylesheet" type="text/css" />
-
     <meta name="theme-color" content="#ffffff">
 
     <%= csrf_meta_tags %>
@@ -81,20 +77,20 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
     <!-- Include Editor JS files. -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.5.1//js/froala_editor.pkgd.min.js"></script>
     
     <!-- script for FROALA-WYSIWYG -->
     <script>
       $('#wysiwyg').froalaEditor({
-        key: <%= ENV["KOALA_ACTIVATION_KEY"] %>,
+        key: "8F4B3B3B2C-22C4A3D3D1D4F2C2C3A3C1weczguzB-22gwD-11syopnshuB-11rooca1kvD7dgd==",
         inlineMode: false,
-        heightMin: '200px',
-        toolbarButtons: ['bold', 'italic', 'underline'],
-        imageUploadToS3: <%= @aws_data.to_json.html_safe %>
+        heightMin: "200px",
+        toolbarButtons: ["bold", "italic", "underline", "strikeThrough", "subscript", "superscript", "color", "emoticons", "|", "undo", "redo", "|", "insertLink"],
+        imageUploadToS3: <%= @aws_data.to_json.html_safe %>,
       })
     </script>
-
 
   </body>
 </html>
