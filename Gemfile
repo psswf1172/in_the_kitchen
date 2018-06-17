@@ -24,6 +24,7 @@ gem 'gemoji-parser'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'mini_magick', '~>4.8.0'
+
 gem 'oj' #speed up JSON generation and parsing
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
 gem 'omniauth-facebook'

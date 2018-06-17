@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.order(:updated_at).reverse
+    if params[:search_posts]
+      @posts = Post.where('post LIKE ?', "%{params[:search_params][:query]}%")
+    else
+      @posts = Post.order(:updated_at).reverse
+    end
   end
 
   # def search

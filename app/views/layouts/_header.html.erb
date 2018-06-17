@@ -22,6 +22,10 @@
   
     <ul class="navbar-nav ml-auto">      
       <div class="form-inline my-2 my-lg-0">
+        <%= form_for :search_posts, url: search_posts_path, method: :get do | f | %>
+          <%= f.text_field :query, class: "form-control mr-sm-2", placeholder: "Search",value: params[:search_posts].presence && params[:search_posts][:query] %>
+          <%= f.submit "Search", class: "btn btn-sm my-2 my-sm-0", name: nil %>
+        <% end %> 
        
 <!--         <span class="glyphicon glyphicon-search"></span>
  -->     </div>

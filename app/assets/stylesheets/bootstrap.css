@@ -59,6 +59,26 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
+html, body {
+  height: 100%;
+  position: relative;
+}
+
+footer {
+  height: 200px; 
+  background-color: #f5f5f5;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+main {
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 200px;
+}
+
 @-ms-viewport {
   width: device-width;
 }
@@ -76,7 +96,6 @@ body {
   color: #919aa1;
   text-align: left;
   background-color: #fff;
-  height: 100vh;
 }
 
 [tabindex="-1"]:focus {

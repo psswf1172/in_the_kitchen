@@ -14,13 +14,10 @@
           <% render "ingredient_fields", f: ingredient %>
         <% end %>
       </div>
-      <div class="links">
+      <div class="links" tabindex="0">
         <%= link_to_add_association "Add another ingredient", f, :ingredients, class: "btn btn-secondary" %>
       </div>
-
-
-    <br />
-    <br />
+      <br /><br />
 
     <p><strong>Instructions:</strong></p>
       <div id="instructions">
@@ -28,16 +25,16 @@
           <% render "instruction_fields", f: instruction %>
         <% end %>
       </div>
-      <div class="links">
+      <div class="links" tabindex="0">
         <%= link_to_add_association "Add another instruction", f, :instructions, class: "btn btn-secondary" %>
       </div><br />
 
-  <p><strong>Tags:</strong></p>
-    <%= f.text_field :all_tags, class: "form-control", placeholder: "Add comma-separated list of tags (like bread, the main dish, etc,)" %><br /><br />
+    <p><strong>Tags:</strong></p>
+      <%= f.text_field :all_tags, class: "form-control", placeholder: "Add comma-separated list of tags (like bread, the main dish, etc,)" %><br /><br />
 
-    <%= f.submit "Update recipe", class: "btn btn-secondary" %>
+      <div class="links" tabindex="0"><%= f.submit "Update recipe", class: "btn btn-secondary" %>
+      </div>
 
-    <% render "shared/edit_toolbar" %>
-<% end %>
+    <% end %>
   </div>
 </div>
