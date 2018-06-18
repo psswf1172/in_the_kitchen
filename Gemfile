@@ -10,6 +10,7 @@ end
 gem 'rails', '~> 5.2'
 
 gem 'aws-sdk'
+gem 'aws-sdk-rails'
 gem 'aws-sdk-s3', require: false
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap', '~> 4.1.1'
