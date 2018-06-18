@@ -8,7 +8,7 @@
 #   port: '9250'
 # staging:
 #   <<: *default
-# production:
-#   es_bin: './elasticsearch-6.2.4/bin/elasticsearch'
-#   host: 'https://search-in-the-monaco-kitchen-hog3n323ovglhuyra3ogmnuss4.us-east-1.es.amazonaws.com'
-#   port: '9400'
+production:
+  es_bin: './elasticsearch-6.2.4/bin/elasticsearch'
+  host: 'https://search-in-the-monaco-kitchen-hog3n323ovglhuyra3ogmnuss4.us-east-1.es.amazonaws.com'
+  port: '9400'
