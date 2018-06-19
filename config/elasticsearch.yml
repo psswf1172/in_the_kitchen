@@ -1,14 +1,11 @@
-# development: &default
-#   es_bin: './elasticsearch-6.2.4/bin/elasticsearch'
-#   host: 'http://localhost:9200'
-#   port: '9200'
-# test:
-#   es_bin: './elasticsearch-6.2.4/bin/elasticsearch'
-#   host: 'http://localhost:9250'
-#   port: '9250'
-# staging:
-#   <<: *default
-production:
+development: &default
+  host: 'http://localhost:9200'
   es_bin: './elasticsearch-6.2.4/bin/elasticsearch'
+  port: '9200'
+test:
+  <<: *default
+staging:
+  <<: *default
+production:
   host: 'https://search-in-the-monaco-kitchen-hog3n323ovglhuyra3ogmnuss4.us-east-1.es.amazonaws.com'
   port: '9400'

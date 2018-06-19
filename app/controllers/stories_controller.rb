@@ -22,6 +22,7 @@ class StoriesController < ApplicationController
     if @story.author.blank? then @story.author = current_user.id end
     @story.save!
     if @story.save
+      Story.reindex
       redirect_to @story, notice: "You're in the books, story teller!"
     else
       render "new"
@@ -31,6 +32,7 @@ class StoriesController < ApplicationController
   def update
     @story = Story.find(params[:id])
     if @story.update_attributes(story_params)
+      Story.reindex
       redirect_to @story
     else
       render "edit"

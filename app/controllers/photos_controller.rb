@@ -21,6 +21,7 @@ class PhotosController < ApplicationController
     @photo.user_id = current_user.id
     @photo.save!
     if @photo.save
+      Photo.reindex
       redirect_to @photo, notice: "Photo saved!"
     else
       render "new"
@@ -30,6 +31,7 @@ class PhotosController < ApplicationController
   def update
     @photo = Photo.find(params[:id])
     if @photo.update_attributes(photo_params)
+      Photo.reindex
       redirect_to @photo, notice: "Photo updated!"
     else
       render "edit"

@@ -24,6 +24,7 @@ class RecipesController < ApplicationController
     if @recipe.author.blank? then @recipe.author = current_user.id end
     @recipe.save!
     if @recipe.save
+      Recipe.reindex
       redirect_to @recipe, notice: "Recipe saved!"
     else
       render "new"
@@ -33,6 +34,7 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update_attributes(recipe_params)
+      Recipe.reindex
       redirect_to @recipe, notice: "Your recipe has been updated!"
     else
       render "edit"

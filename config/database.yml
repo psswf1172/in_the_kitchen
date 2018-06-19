@@ -1,7 +1,6 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  database: <%= ENV["POSTGRES_DEV_DB"] %>
   username: <%= ENV["POSTGRES_USER"] %>
   password: <%= ENV["POSTGRES_PASSWORD"] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -10,14 +9,8 @@ default: &default
 
 development:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
   database: <%= ENV["POSTGRES_DEV_DB"] %>
-  username: <%= ENV["POSTGRES_USER"] %>
-  password: <%= ENV["POSTGRES_PASSWORD"] %>
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-  host: <%= ENV["POSTGRES_HOST"] %>
+
   
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -28,8 +21,6 @@ test:
 
 production:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
   database: <%= ENV["RDS_DB_NAME"] %>
   username: <%= ENV["RDS_USERNAME"] %>
   password: <%= ENV["RDS_PASSWORD"] %>
