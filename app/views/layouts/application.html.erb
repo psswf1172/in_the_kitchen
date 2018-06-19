@@ -87,11 +87,11 @@
         key: "8F4B3B3B2C-22C4A3D3D1D4F2C2C3A3C1weczguzB-22gwD-11syopnshuB-11rooca1kvD7dgd==",
         inlineMode: false,
         heightMin: "200px",
-        toolbarButtons: ["bold", "italic", "underline", "strikeThrough", "subscript", "superscript", "color", "emoticons", "|", "undo", "redo", "|", "insertLink"],
-        toolbarButtonsXS: ["bold", "italic", "underline", "emoticons", "insertLink"],
-        toolbarButtonsSM: ["bold", "italic", "underline", "strikeThrough", "color", "emoticons", "|", "undo", "redo", "|", "insertLink"],
-        toolbarButtonsMD: ["bold", "italic", "underline", "strikeThrough", "subscript", "superscript", "color", "emoticons", "|", "undo", "redo", "|", "insertLink"],
-        imageUploadToS3: <%= @aws_data.to_json.html_safe %>,
+        toolbarButtons: ["bold", "italic", "underline", "strikeThrough", "subscript", "superscript", "color", "emoticons", "|", "undo", "redo", "|", "insertLink", "insertImage"],
+        toolbarButtonsXS: ["bold", "italic", "underline", "emoticons", "insertLink", "insertImage"],
+        toolbarButtonsSM: ["bold", "italic", "underline", "strikeThrough", "color", "emoticons", "|", "undo", "redo", "|", "insertLink", "insertImage"],
+        toolbarButtonsMD: ["bold", "italic", "underline", "strikeThrough", "subscript", "superscript", "color", "emoticons", "|", "undo", "redo", "|", "insertLink", "insertImage"],
+        imageUploadToS3: "<%= @aws_data %>",
       })
     </script>
 

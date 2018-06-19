@@ -4,6 +4,21 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
 
+  def image_upload_hash
+    @aws_data = { 
+      bucket: ENV["S3_BUCKET"],
+      region: "s3-us-east-1",
+      keyStart: "uploads/",
+      callback: function(url, key) {
+        console.log(url);
+        console.log(key);
+      },
+      acl: "public-read",
+      accessKeyId: ENV["AWS_ACCESS_KEY_ID"],
+      secretAccessKey: ENV["AWS_SECRET_ACCESS_KEY"]
+    }
+  end
+
   protected
   def after_sign_in_path_for(users)
     root_path
