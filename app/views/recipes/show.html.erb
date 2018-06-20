@@ -52,10 +52,10 @@
 <br />
 <br />
 
-<div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">
-    <% if current_user == @recipe.user %>
+<% if current_user == @recipe.user %>
+  <div class="row">
+    <div class="container col-3"></div>
+    <div class="container col-6">
       <button type="button" class="btn btn-secondary">
         <%= link_to 'Edit Recipe', edit_recipe_path(@recipe), method: :get %>
       </button>
@@ -63,36 +63,51 @@
       <button type="button" class="btn btn-secondary">
         <%= link_to 'Delete Recipe', recipe_path(@recipe), method: :delete, data: { confirm: "Are you sure?" } %>
       </button>
-    <% end %>
+    </div>
+    <div class="container col-3"></div>
   </div>
-  <div class="container col-3"></div>
-</div>
+
 
 <br />
+<br />
+
+
+  <div class="row">
+    <div class="container col-3"></div>
+    <div class="container col-6">
+      <div class="card border-secondary">
+        <div class="card-body">
+          <h5>My Notes</h5>
+            <div class="fr-view"><%= render @recipe.notes %></div>
+            <h6>Add a Note</h6>
+            <%= render "notes/form", object: @recipe %>
+              
+        </div>
+      </div>
+    </div>
+    <div class="container col-3"></div>
+  </div>
+<% end %>
+
 <br />
 
 <div class="row">
   <div class="container col-3"></div>
   <div class="container col-6">
-    <h5>Comments</h5>
-      <div class="fr-view"><%= render @recipe.comments %></div>
+    <div class="card border-primary">
+      <div class="card-body">
+        <h5>Comments</h5>
+          <div class="fr-view"><%= render @recipe.comments %></div>
+          <h6>Add a Comment</h6>
+          <%= render "comments/form", object: @recipe %>
+          
+      </div>
+    </div>
   </div>
   <div class="container col-3"></div>
 </div>
 
 <br />
-
-<div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">
-    <h6>Add a Comment</h6>
-    
-      <%= render "comments/form", object: @recipe %>
-      <%= render "shared/edit_toolbar" %>
-  </div>
-  <div class="container col-3"></div>
-</div>
-
 <br />
 
 <div class="row">

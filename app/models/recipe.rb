@@ -9,4 +9,5 @@ class Recipe < Post
                                 reject_if: :all_blank
 
   has_many :comments, as: :commentable
+  has_many :notes, as: :notable
 end

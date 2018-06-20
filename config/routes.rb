@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :photos, :recipes, :stories do
     resources :comments
+    resources :notes
   end
 
   get "/acknowledgments", to: "home#acknowledgments"

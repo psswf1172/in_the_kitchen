@@ -1,7 +1,14 @@
 <div class="card">
   <div class="card-body">
     <p class="card-text"><%= raw comment.body %></p>
-    <h6 class="card-footer mb-2 text-muted"><small><%= comment.user.name %></small></h6>
+    <div class="row card-footer">
+      <div class="col-6">
+        <h6 class="mb-2 text-muted" style="text-align: left"><small><%= comment.user.name %></small></h6>
+      </div>
+      <div class="col-6">
+        <h6 class="mb-2 text-muted" style="text-align: right"><small><%= comment.created_at.to_date.to_formatted_s(:long) %></small></h6>
+      </div>
+    </div>
   </div>
 </div>
 <br />

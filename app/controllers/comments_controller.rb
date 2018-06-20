@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     if @comment.save!
       redirect_to @commentable
     else
-      redirect_to post_path(@commentable), :notice => "oops! "
+      redirect_to post_path(@commentable), notice: "oops! "
     end
   end
 
