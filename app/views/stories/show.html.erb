@@ -30,10 +30,10 @@
 
 <br />
 
+<% if current_user == @story.user %>
 <div class="row">
   <div class="container col-3"></div>
   <div class="container col-6">
-    <% if current_user == @story.user %>
       <button type="button" class="btn btn-secondary">
         <%= link_to 'Edit Story', edit_story_path(@story) %>
       </button>
@@ -41,33 +41,24 @@
       <button type="button" class="btn btn-secondary">
         <%= link_to 'Delete Story', story_path(@story), method: :delete, data: { confirm: "Are you sure?" } %>
       </button>
-    <% end %>
   </div>
   <div class="container col-3"></div>
 </div>
-
-<br />
-<br />
-<br />
-
-<div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">
-    <h5>Comments</h5>
-      <%= render @story.comments %>
-  </div>
-  <div class="container col-3"></div>
-</div>
+<% end %>
 
 <br />
 
 <div class="row">
   <div class="container col-3"></div>
   <div class="container col-6">
-    <h6>Add a Comment</h6>
-    
-      <%= render "comments/form", object: @story %>
-      <%= render "shared/edit_toolbar" %>
+    <div class="card border-primary">
+      <div class="card-body">
+        <h5>Comments</h5>
+        <div class="fr-view"><%= render @story.comments %></div>
+        <h6>Add a Comment</h6>
+          <%= render "comments/form", object: @story %>
+      </div>
+    </div>
   </div>
   <div class="container col-3"></div>
 </div>

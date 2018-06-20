@@ -16,21 +16,21 @@
 
 <br />
 
-<div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">
-    <% if current_user == @photo.user %>
-      <button type="button" class="btn btn-secondary">
-        <%= link_to 'Edit Photo', edit_photo_path(@photo) %>
-      </button>
+<% if current_user == @photo.user %>
+  <div class="row">
+    <div class="container col-3"></div>
+    <div class="container col-6">
+        <button type="button" class="btn btn-secondary">
+          <%= link_to 'Edit Photo', edit_photo_path(@photo) %>
+        </button>
 
-      <button type="button" class="btn btn-secondary">
-        <%= link_to 'Delete Photo', photo_path(@photo), method: :delete, data: { confirm: "Are you sure?" } %>
-      </button>
-    <% end %>
+        <button type="button" class="btn btn-secondary">
+          <%= link_to 'Delete Photo', photo_path(@photo), method: :delete, data: { confirm: "Are you sure?" } %>
+        </button>
+    </div>
+    <div class="container col-3"></div>
   </div>
-  <div class="container col-3"></div>
-</div>
+<% end %>
 
 <br />
 <br />
@@ -38,21 +38,14 @@
 <div class="row">
   <div class="container col-3"></div>
   <div class="container col-6">
-    <h5>Comments</h5>
-      <div class="fr-view"><%= render @photo.comments %></div>
-  </div>
-  <div class="container col-3"></div>
-</div>
-
-<br />
-
-<div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">
-    <h6>Add a Comment</h6>
-    
-      <%= render "comments/form", object: @photo %>
-      <%= render "shared/edit_toolbar" %>
+    <div class="card border-primary">
+      <div class="card-body">
+        <h5>Comments</h5>
+        <div class="fr-view"><%= render @photo.comments %></div>
+        <h6>Add a Comment</h6>
+        <%= render "comments/form", object: @photo %>
+      </div>
+    </div>
   </div>
   <div class="container col-3"></div>
 </div>
