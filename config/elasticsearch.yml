@@ -4,6 +4,7 @@ development: &default
   port: '9200'
 test:
   <<: *default
+  port: '9250'
 staging:
   <<: *default
 production:
