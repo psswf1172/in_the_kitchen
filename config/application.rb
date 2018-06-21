@@ -14,8 +14,8 @@ module InTheKitchen
     config.load_defaults 5.1
 
     # for sidekiq from https://stackoverflow.com/questions/15560761/sidekiq-error-uninitialized-constant
-    config.autoload_paths += %W(#{config.root}/lib)
-    config.eager_load_paths += %W(#{config.root}/lib)
+    # config.autoload_paths += %W(#{config.root}/lib)
+    # config.eager_load_paths += %W(#{config.root}/lib)
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
