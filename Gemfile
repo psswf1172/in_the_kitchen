@@ -10,7 +10,7 @@ gem 'rails', '~> 5.2'
 
 gem 'aws-sdk'
 gem 'aws-sdk-rails'
-gem 'aws-sdk-s3', require: false
+gem 'aws-sdk-s3'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap', '~> 4.1.1'
 gem 'cocoon', '~> 1.2', '>= 1.2.11'
