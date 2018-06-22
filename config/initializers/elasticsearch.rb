@@ -1,31 +1,23 @@
-# require 'faraday_middleware'
+# ELASTICSEARCH_URL = ENV["ELASTICSEARCH_URL"] || 'http://localhost:9200'
 
-ELASTICSEARCH_URL = ENV["ELASTICSEARCH_URL"] || 'http://localhost:9200'
+# Elasticsearch::Model.client = Elasticsearch::Client.new(host: ELASTICSEARCH_URL)
 
-Elasticsearch::Model.client = Elasticsearch::Client.new(host: ELASTICSEARCH_URL)
+require 'faraday_middleware'
+require 'faraday_middleware/aws_sigv4'
+require 'pp'
 
-# require 'faraday_middleware/aws_sigv4'
-# Searchkick.client = Elasticsearch::Client.new(url: ENV['ELASTICSEARCH_URL']) do |f|
-#   f.request :aws_signers_v4,
-#             credentials: Aws::Credentials.new(ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY']),
-#             service_name: 'es',
-#             region: 'us-east-1'
-#   f.adapter Faraday.default_adapter
-# end
+conn = Faraday.new(url: 'https://search-in-the-monaco-kitchen-hog3n323ovglhuyra3ogmnuss4.us-east-1.es.amazonaws.com') do |faraday|
+  faraday.request :aws_sigv4,
+    service: 'apigateway',
+    region: 'us-east-1',
+    access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+  # see http://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/Sigv4/Signer.html
 
+  faraday.response :json, content_type: /\bjson\b/
+  faraday.response :raise_error
 
-# transport_configuration = lambda do |f|
-#   f.request :aws_signers_v4,
-#     credentials: Aws::Credentials.new(ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY']),
-#     service_name: 'es',
-#     region: 'us-east-1'
-  
-#   f.response :logger
-#   f.adapter Faraday.default_adapter
-# end
+  faraday.adapter Faraday.default_adapter
+end
 
-# transport = Elasticsearch::Transport::Transport::HTTP::Faraday.new \
-#   hosts: [{ scheme: 'https', host: ENV['ELASTICSEARCH_URL'], port: '443' }],
-#   &transport_configuration
-
-# Elasticsearch::Model.client = Elasticsearch::Client.new transport: transport
+# res = conn.get '/'
