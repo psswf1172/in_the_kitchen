@@ -1,13 +1,13 @@
-ELASTICSEARCH_URL = ENV["ELASTICSEARCH_URL"] || 'http://localhost:9200'
+require 'faraday_middleware/aws_signers_v4'
 
-# config = {
-#   transport_options: { request: { timeout: 5 } }
-# }
+# ELASTICSEARCH_URL = ENV["ELASTICSEARCH_URL"] || 'http://localhost:9200'
 
-# if File.exists?("config/elasticsearch.yml")
-#   template = ERB.new(File.new("config/elasticsearch.yml").read)
-#   processed = YAML.load(template.result(binding))
-#   config.merge!(processed[Rails.env])
-# end
+# Elasticsearch::Model.client = Elasticsearch::Client.new(host: ELASTICSEARCH_URL)
 
-Elasticsearch::Model.client = Elasticsearch::Client.new(host: ELASTICSEARCH_URL)
+Searchkick.client = Elasticsearch::Client.new(url: ENV['ELASTICSEARCH_URL']) do |f|
+  f.request :aws_signers_v4,
+            credentials: Aws::Credentials.new(ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY']),
+            service_name: 'es',
+            region: 'us-east-1'
+  f.adapter Faraday.default_adapter
+end
