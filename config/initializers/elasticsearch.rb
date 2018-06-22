@@ -1,4 +1,4 @@
-require 'faraday_middleware/aws_signers_v4'
+require 'faraday_middleware-aws-sigv4'
 
 # ELASTICSEARCH_URL = ENV["ELASTICSEARCH_URL"] || 'http://localhost:9200'
 
