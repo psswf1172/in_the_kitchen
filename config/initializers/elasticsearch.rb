@@ -9,7 +9,7 @@ Searchkick.client =
     f.use FaradayMiddleware::Gzip
     f.request :aws_sigv4, {
       credentials: Aws::Credentials.new(ENV["AWS_ACCESS_KEY_ID"], ENV["AWS_SECRET_ACCESS_KEY"]),
-      service_name: "es",
+      service: "es",
       region: "us-east-1"
     }
   end
