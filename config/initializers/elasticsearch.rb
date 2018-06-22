@@ -12,7 +12,7 @@
 #   f.adapter Faraday.default_adapter
 # end
 
-require 'faraday_middleware/aws_signers_v4'
+require 'faraday_middleware/aws_sigv4'
 
 transport_configuration = lambda do |f|
   f.request :aws_signers_v4,
