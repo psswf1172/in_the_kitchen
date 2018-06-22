@@ -17,7 +17,7 @@ gem 'cocoon', '~> 1.2', '>= 1.2.11'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
-  gem 'dotenv-rails'
+gem 'dotenv-rails'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'faraday_middleware-aws-sigv4'
