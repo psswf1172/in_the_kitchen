@@ -1,5 +1,5 @@
 require 'faraday/middleware'
-require 'faraday_middleware/aws_signers_v4'
+require 'faraday_middleware/aws_sigv4'
 
 Searchkick.client =
   Elasticsearch::Client.new(
@@ -7,7 +7,7 @@ Searchkick.client =
     transport_options: {request: {timeout: 10}}
   ) do |f|
     f.use FaradayMiddleware::Gzip
-    f.request :aws_signers_v4, {
+    f.request :aws_sigv4, {
       credentials: Aws::Credentials.new(ENV["AWS_ACCESS_KEY_ID"], ENV["AWS_SECRET_ACCESS_KEY"]),
       service_name: "es",
       region: "us-east-1"
