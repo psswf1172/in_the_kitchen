@@ -23,8 +23,9 @@
                     <tr>
                       <% if post.class == User %>
                         <% u = User.find(post.id) %>
-                          <td><%= u.author%></td>
-                          
+                          <td></td>
+                          <td></td>
+
                       <% elsif post.class == Ingredient %>
                         <% r = Recipe.find(post.recipe_id) %>
                         <td><%= link_to r.title, controller: "#{r.type.downcase}s", action: "show", id: "#{r.id}" %></td>
