@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     query = params[:search_posts].presence && params[:search_posts][:query]
 
     if query
-      @posts = Post.search(query)
+      @posts = Searchkick.search(query, emoji: true)
     end
   end
 

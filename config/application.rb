@@ -18,5 +18,7 @@ module InTheKitchen
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.read_encrypted_secrets = true
+
+    config.autoload_paths += %W(#{config.root}/lib)
   end
 end

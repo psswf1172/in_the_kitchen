@@ -21,7 +21,22 @@
               <tbody>
                 <% @posts.results.each do |post| %>
                     <tr>
-                      <% if post.type == "Story" %>
+                      <% if post.class == Ingredient %>
+                        <% r = Recipe.find(post.recipe_id) %>
+                        <td><%= link_to r.title, controller: "#{r.type.downcase}s", action: "show", id: "#{r.id}" %></td>
+                        <td><%= r.author%></td>
+
+                      <% elsif post.class == Instruction %>
+                        <% r = Recipe.find(post.recipe_id) %>
+                        <td><%= link_to r.title, controller: "#{r.type.downcase}s", action: "show", id: "#{r.id}" %></td>
+                        <td><%= r.author%></td>  
+
+                      <% elsif post.class == Tag %>
+                        <% t = Post.find((post.post_ids).first) %>
+                        <td><%= link_to t.title, controller: "#{t.type.downcase}s", action: "show", id: "#{t.id}" %></td>
+                        <td><%= t.author%></td>
+
+                      <% elsif post.type == "Story" %>
                         <td><%= link_to post.title, controller: "#{post.type.gsub("y", "ie").downcase}s", action: "show", id: "#{post.id}" %></td>                      
                         <td><%= post.author %></td>
                       <% else %>

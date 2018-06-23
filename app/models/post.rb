@@ -1,6 +1,10 @@
 require 'elasticsearch/model'
 
 class Post < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+  include Indexable
+
   belongs_to :user
 
   validates :title, presence: true,
@@ -10,17 +14,8 @@ class Post < ApplicationRecord
   has_many :tags, through: :taggings, dependent: :destroy
 
   searchkick inheritance: true
+  after_commit :reindex_post
 
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
-
-  settings do
-    mappings dynamic: false do
-      indexes :author, type: :text
-      indexes :title, type: :text, analyzer: :english
-      indexes :description, type: :text, analyzer: :english
-    end
-  end
 
   def self.tagged_with(name)
     Tag.find_by_name!(name).recipes

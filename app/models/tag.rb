@@ -1,4 +1,8 @@
 class Tag < ApplicationRecord
+  
   has_many :taggings, dependent: :destroy
-  has_many :tags, through: :taggings, dependent: :destroy
+  has_many :posts, through: :taggings, dependent: :destroy
+
+  searchkick 
+
 end

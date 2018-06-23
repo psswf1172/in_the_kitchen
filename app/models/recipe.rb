@@ -10,4 +10,5 @@ class Recipe < Post
 
   has_many :comments, as: :commentable
   has_many :notes, as: :notable
+
 end
