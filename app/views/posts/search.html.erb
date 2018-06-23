@@ -3,7 +3,7 @@
   <div class="container col-3"></div>
   <div class="container col-6">
     <% unless @posts.nil? %>
-      <% if @posts.empty? %>
+      <% if @posts.empty?%>
         <h2>No posts found matching your query.</h2>
       <% else %>
         <div class="card border-secondary"> 
@@ -21,7 +21,11 @@
               <tbody>
                 <% @posts.results.each do |post| %>
                     <tr>
-                      <% if post.class == Ingredient %>
+                      <% if post.class == User %>
+                        <% u = User.find(post.id) %>
+                          <td><%= u.author%></td>
+                          
+                      <% elsif post.class == Ingredient %>
                         <% r = Recipe.find(post.recipe_id) %>
                         <td><%= link_to r.title, controller: "#{r.type.downcase}s", action: "show", id: "#{r.id}" %></td>
                         <td><%= r.author%></td>
