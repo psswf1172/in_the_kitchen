@@ -1,5 +1,5 @@
 # require 'faraday/middleware'
-# require 'faraday_middleware/aws_sigv4'
+require 'faraday_middleware/aws_sigv4'
 
 ENV["ELASTICSEARCH_URL"] || "localhost:9200"
 

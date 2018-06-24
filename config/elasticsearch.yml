@@ -10,3 +10,5 @@ staging:
 production:
   host: 'https://search-in-the-monaco-kitchen-hog3n323ovglhuyra3ogmnuss4.us-east-1.es.amazonaws.com'
   port: '9400'
+http.cors.enabled: true
+http.cors.allow-origin: "*"
