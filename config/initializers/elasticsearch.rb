@@ -3,7 +3,7 @@ require 'faraday_middleware/aws_sigv4'
 
 Searchkick.client =
   Elasticsearch::Client.new(
-    url: ENV["ELASTICSEARCH_URL"],
+    url: ENV["ELASTICSEARCH_URL"] || "localhost:9200",
     transport_options: {request: {timeout: 10}}
   ) do |f|
     f.use FaradayMiddleware::Gzip

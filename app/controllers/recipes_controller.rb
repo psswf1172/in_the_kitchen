@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
-
+  respond_to :json, :html
+  
   def index
     @recipes = Recipe.order(:updated_at).reverse
   end
