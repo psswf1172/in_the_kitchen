@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-
+  respond_to :json, :html
+  
   def index
       @posts = Post.order(:updated_at).reverse
   end
