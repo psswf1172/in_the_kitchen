@@ -11,4 +11,7 @@ class Recipe < Post
   has_many :comments, as: :commentable
   has_many :notes, as: :notable
 
+  validates_associated :ingredients
+  validates_associated :instructions
+
 end

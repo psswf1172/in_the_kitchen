@@ -32,3 +32,4 @@
 .ebextensions/*
 
 /localhost
+/coverage
