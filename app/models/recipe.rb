@@ -14,4 +14,7 @@ class Recipe < Post
   validates_associated :ingredients
   validates_associated :instructions
 
+  def chapter_search(chapter)
+    instance_variable_set("@#{chapter}", Searchkick.search(chapter))
+  end
 end
