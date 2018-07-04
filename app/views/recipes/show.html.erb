@@ -66,11 +66,10 @@
     </div>
     <div class="container col-3"></div>
   </div>
-
+<% end %>
 
 <br />
 <br />
-
 
   <div class="row">
     <div class="container col-3"></div>
@@ -78,6 +77,11 @@
       <div class="card border-secondary">
         <div class="card-body">
           <h5>My Notes</h5>
+          <div style="text-align: right" id="cooked">
+
+              <%= label_tag "Mark as cooked?" %>
+              <%= check_box_tag :cooked, nil, 0, data: { url: recipe_toggle_path(@recipe), remote: true, method: :post } %>
+          </div>
             <div class="fr-view"><%= render @recipe.notes %></div>
             <h6>Add a Note</h6>
             <%= render "notes/form", object: @recipe %>
@@ -87,7 +91,7 @@
     </div>
     <div class="container col-3"></div>
   </div>
-<% end %>
+
 
 <br />
 

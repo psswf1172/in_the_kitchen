@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 2018_06_19_203510) do
   end
 
   create_table "recipes", force: :cascade do |t|
+    
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

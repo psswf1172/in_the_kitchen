@@ -10,10 +10,16 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :photos, :recipes, :stories do
+  resources :photos,:stories do
     resources :comments
-    resources :notes
   end
+
+  resources :recipes do
+    resources :notes
+    resources :comments
+    post "recipes/:id/toggle", to: "recipes#toggle", as: :toggle
+  end
+
 
   get "/acknowledgments", to: "home#acknowledgments"
   get "/contact", to: "home#contact"
