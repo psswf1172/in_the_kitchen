@@ -43,7 +43,6 @@ class RecipesController < ApplicationController
 
   def toggle
     @recipe = Recipe.find(params[:id])
-    
     @recipe.toggle!(:cooked)
   end
 
@@ -57,5 +56,5 @@ class RecipesController < ApplicationController
   private
   def recipe_params
     params.require(:recipe).permit(:id, :title, :description, :author, :cooked, :all_tags, ingredients_attributes: [:id, :quantity, :measurement, :name, :description, :_destroy], instructions_attributes: [:id, :description, :_destroy])
-  end 
+  end
 end

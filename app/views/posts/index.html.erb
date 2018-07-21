@@ -10,7 +10,7 @@
       <% elsif post.type == "Story" %>
         <div class="card border-success">
       <% else %>
-        <div class="card border-warning">
+        <div class="card border-info">
       <% end %>
         <div class="card-body">
           <h4 class="card-title">
@@ -22,7 +22,7 @@
           <h6 class="card-subtitle mb-2 text-muted"><%= post.author %></h6>
             <p class="card-text fr-view"><%= raw post.description %></p>
               <% if (post.type == "Photo") && (post.images.attached?) %>
-                <%= image_tag post.images.first.variant(resize: "500 x 500") %>
+                <%= image_tag post.images.first.variant(resize: "500 x 500"), alt: "Photo posted by #{post.author}" %>
               <% end %>
         </div>
       </div>

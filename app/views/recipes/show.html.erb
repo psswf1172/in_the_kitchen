@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <h1><%= @recipe.title %></h1>  
+  <h1><%= @recipe.title %></h1>
   <hr class="my-4">
   <p class="fr-view"><%= raw @recipe.description %></p>
   <p class="lead">
@@ -11,7 +11,7 @@
 
 <div class="row">
   <div class="container col-3"></div>
-  <div class="container col-6">  
+  <div class="container col-6">
     <h4>Ingredients</h4>
       <% for ingredient in @recipe.ingredients %>
       <p>
@@ -77,15 +77,22 @@
       <div class="card border-secondary">
         <div class="card-body">
           <h5>My Notes</h5>
-          <div style="text-align: right" id="cooked">
+          <% if @recipe.cooked == true %>
+            <div style="text-align: right" id="cooked">
+                <%= label_tag "Cooked" %>
+                <%= check_box_tag :cooked, nil, 0, data: { url: recipe_toggle_path(@recipe), remote: true, method: :post } %>
+            </div>
+          <% else %>
+            <div style="text-align: right" id="cooked">
 
-              <%= label_tag "Mark as cooked?" %>
-              <%= check_box_tag :cooked, nil, 0, data: { url: recipe_toggle_path(@recipe), remote: true, method: :post } %>
-          </div>
+                <%= label_tag "Mark as cooked?" %>
+                <%= check_box_tag :cooked, nil, 0, data: { url: recipe_toggle_path(@recipe), remote: true, method: :post } %>
+            </div>
+          <% end %>
             <div class="fr-view"><%= render @recipe.notes %></div>
             <h6>Add a Note</h6>
             <%= render "notes/form", object: @recipe %>
-              
+
         </div>
       </div>
     </div>
@@ -104,7 +111,7 @@
         <div class="fr-view"><%= render @recipe.comments %></div>
         <h6>Add a Comment</h6>
         <%= render "comments/form", object: @recipe %>
-          
+
       </div>
     </div>
   </div>

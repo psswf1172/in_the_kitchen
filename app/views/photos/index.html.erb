@@ -5,20 +5,20 @@
   <div class="container col-6">
     <% @photos.each do |photo| %>
 
-      <div class="card border-warning"> 
+      <div class="card border-info">
         <div class="card-body">
           <h4 class="card-title"><%= link_to photo.title, photo_path(photo) %></h4>
           <h6 class="card-subtitle mb-2 text-muted"><%= photo.author %></h6>
             <% photo.images.each do | image | %>
-              <%= image_tag image.variant(resize: "500x500") %>
+              <%= image_tag image.variant(resize: "500x500"), alt: "Photo posted by #{photo.author}" %>
             <% end %>
             <p class="card-text fr-view"><%= raw photo.description %></p>
             <p><% photo.tags.each do |tag| %>
               <span class="badge badge-pill badge-warning">
-                <%= tag.name %> 
+                <%= tag.name %>
               </span>
               <% end %>
-            </p> 
+            </p>
         </div>
       </div>
 
