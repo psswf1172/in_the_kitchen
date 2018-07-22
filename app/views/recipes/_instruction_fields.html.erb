@@ -1,13 +1,6 @@
 <div class="nested-fields">
-  <div class="row">
-    <div class="field col-10">
-      
-      <%= f.text_area :description, class: "form-control", placeholder: "Enter work step" %>
-        
-    </div>
-    <div class="col-2" style="margin: auto; width: 75%"><%= link_to_remove_association "Remove", f %>
-    </div>
-  </div>
+	<%= f.text_area :description, class: "form-control", placeholder: "Enter work step", name: "Enter work step" %>
+	<sub style="text-align: right;"><%= link_to_remove_association "Delete instruction", f %></sub>
+	<!-- <p>	\u{1F5D1}</p> -->
 </div>
-<br />
-<br />
+

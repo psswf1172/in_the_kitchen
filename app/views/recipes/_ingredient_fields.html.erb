@@ -1,23 +1,11 @@
 <div class="nested-fields">
-  <div class="row">
-    <div class="field col-2">
-      <%= f.text_field :quantity, class: "form-control", placeholder: "Amt"  %><br />
-    </div>
+  <%= f.text_field :quantity, class: "form-control", placeholder: "Amount", name: "Amount"  %>
 
-    <div class="field  col-2">
-      <%= f.text_field :measurement, class: "form-control", placeholder: "Meas"   %>
-    </div>
+  <%= f.text_field :measurement, class: "form-control", placeholder: "Measurement", name: "Measurement"   %>
 
-    <div class="field col-3">
-      <%= f.text_field :name, class: "form-control", placeholder: "Name"   %>
-    </div>
+  <%= f.text_field :name, class: "form-control", placeholder: "Ingredient name", name: "Ingredient name"   %>
 
-    <div class="field col-3">
-      <%= f.text_field :description, class: "form-control", placeholder: "(ie. chopped, grated, etc)"   %>
-    </div>
+  <%= f.text_field :description, class: "form-control", placeholder: "Additional description (ie. chopped, grated, etc)", name: "Additional description"   %>
 
-    <div class="col-2" style="margin: auto; width: 75%"><%= link_to_remove_association "Remove", f %>
-    </div>
-  </div>
-
+  <sub><%= link_to_remove_association "Delete ingredient", f %></sub>
 </div>

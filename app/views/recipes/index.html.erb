@@ -1,25 +1,21 @@
-<br /><div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">
-    <% @recipes.each do |recipe| %>
-
-      <div class="card border-danger"> 
-        <div class="card-body">
-          <h4 class="card-title"><%= link_to recipe.title, recipe_path(recipe)%></h4>
-          <h6 class="card-subtitle mb-2 text-muted"><%= recipe.author %></h6>
-            <p class="card-text fr-view"><%= raw recipe.description %></p>
-            <p><% recipe.tags.each do |tag| %>
-              <span class="badge badge-pill badge-danger">
-                <%= tag.name %> 
-              </span>
-              <% end %>
-            </p>
-        </div>
-      </div>
-
-      <br />
-    <% end %>
+<section class="row">
+  <div class="container">
+    <ul id="recipes-list">
+      <% @recipes.each do |recipe| %>
+        <li class="card border-danger">
+          <div class="card-body">
+            <h4 class="card-title"><%= link_to recipe.title, recipe_path(recipe)%></h4>
+            <h6 class="card-subtitle mb-2 text-muted"><%= recipe.author %></h6>
+              <p class="card-text fr-view"><%= truncate(recipe.description.html_safe, length: 75, separator: " ", escape: false) %></p>
+              <p><% recipe.tags.each do |tag| %>
+                <span class="badge badge-pill badge-danger">
+                  <%= tag.name %>
+                </span>
+                <% end %>
+              </p>
+          </div>
+        </li><br />
+      <% end %>
+    </ul>
   </div>
-  <div class="container col-3"></div>
-</div>
-
+</section>

@@ -1,39 +1,24 @@
 <div class="jumbotron">
-  <h1><%= @story.title %></h1>  
+  <h2><%= @story.title %></h2>
   <hr class="my-4">
   <p class="lead">
     <i><%= @story.author %></i>
   </p>
 </div>
 
-<br />
-
-<div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">  
+<section>
+  <div id="page" class="container">
     <p class="fr-view"><%= raw @story.description %></p>
-  </div>
-  <div class="container col-3"></div>
-</div>
 
-<br>
-
-<div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">
     <% @story.tags.each do |tag| %>
       <span class="badge badge-pill badge-success"><%= tag.name %></span>
     <% end %>
   </div>
-  <div class="container col-3"></div>
-</div>
 
 <br />
 
 <% if current_user == @story.user %>
-<div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">
+  <div class="container">
       <button type="button" class="btn btn-secondary">
         <%= link_to 'Edit Story', edit_story_path(@story) %>
       </button>
@@ -42,15 +27,11 @@
         <%= link_to 'Delete Story', story_path(@story), method: :delete, data: { confirm: "Are you sure?" } %>
       </button>
   </div>
-  <div class="container col-3"></div>
-</div>
 <% end %>
 
 <br />
 
-<div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">
+  <div class="container">
     <div class="card border-primary">
       <div class="card-body">
         <h5>Comments</h5>
@@ -60,17 +41,13 @@
       </div>
     </div>
   </div>
-  <div class="container col-3"></div>
-</div>
 
 <br />
 
-<div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">
+
+  <div class="container">
     <button type="button" class="btn btn-secondary">
       <%= link_to "All Stories", stories_path %>
     </button>
   </div>
-  <div class="container col-3"></div>
-</div>
+</section>

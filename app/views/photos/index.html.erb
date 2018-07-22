@@ -1,29 +1,27 @@
-<%= render "shared/create_post" %>
-
-<div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">
-    <% @photos.each do |photo| %>
-
-      <div class="card border-info">
-        <div class="card-body">
-          <h4 class="card-title"><%= link_to photo.title, photo_path(photo) %></h4>
-          <h6 class="card-subtitle mb-2 text-muted"><%= photo.author %></h6>
-            <% photo.images.each do | image | %>
-              <%= image_tag image.variant(resize: "500x500"), alt: "Photo posted by #{photo.author}" %>
-            <% end %>
-            <p class="card-text fr-view"><%= raw photo.description %></p>
-            <p><% photo.tags.each do |tag| %>
-              <span class="badge badge-pill badge-warning">
-                <%= tag.name %>
-              </span>
+<section class="row">
+  <div class="container">
+    <ul id="photos-list">
+      <% @photos.each do |photo| %>
+        <li class="card border-info">
+          <div class="card-body">
+            <h4 class="card-title"><%= link_to photo.title, photo_path(photo) %></h4>
+            <h6 class="card-subtitle mb-2 text-muted"><%= photo.author %></h6>
+              <% photo.images.each do | image | %>
+                <%= image_tag image.variant(resize: "300 x 300"), alt: "Photo posted by #{photo.author}", class: "card-img" %>
               <% end %>
-            </p>
-        </div>
-      </div>
-
+              <p class="card-text fr-view">
+                <%=  truncate(photo.description.html_safe, length: 150, separator: " ", escape: false) %>
+              </p>
+              <p><% photo.tags.each do |tag| %>
+                <span class="badge badge-pill badge-warning">
+                  <%= tag.name %>
+                </span>
+                <% end %>
+              </p>
+          </div>
+        </li>
+      <% end %>
       <br />
-    <% end %>
+    </ul>
   </div>
-  <div class="container col-3"></div>
-</div>
+</section>

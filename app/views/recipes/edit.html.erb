@@ -1,10 +1,7 @@
-<div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">
-    <h1>Edit Recipe</h1>
-
-    <%= render 'edit_form', object: @recipe %>
-    <%= link_to ' Back', recipes_path %>
+<section class="row">
+  <div id="page" class="container">
+    <h2>Edit Recipe</h2>
+	    <%= render 'edit_form', object: @recipe %>
+	    <%= link_to ' Back', recipes_path %>
   </div>
-  <div class="container col-3"></div>
-</div> 
+</section>

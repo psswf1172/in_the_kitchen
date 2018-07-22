@@ -1,25 +1,22 @@
-<div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">
-    <h1><%= @photo.title.capitalize %></h1>
+<section class="row">
+  <div id="page" class="container">
+    <h3><%= @photo.title.capitalize %></h3>
       <% if @photo.images.attached? %>
         <% @photo.images.each do | image | %>
-          <%= image_tag image.variant(resize: "500x500"), alt: "Photo posted by #{@photo.author}" %>
+          <%= image_tag image.variant(resize: "500x500"), alt: "Photo posted by #{@photo.author}", class: "card-img" %>
         <% end %>
       <% end %>
       <br /><br />
       <h6 class="card-subtitle mb-2 text-muted">Posted by: <%= @photo.author %></h6>
       <p class="card-text fr-view"><%= raw @photo.description %></p>
-    </div>
-  <div class="container col-3"></div>
-</div>
+  </div>
+</section>
 
 <br />
 
 <% if current_user == @photo.user %>
-  <div class="row">
-    <div class="container col-3"></div>
-    <div class="container col-6">
+  <section class="row">
+      <div class="container">
         <button type="button" class="btn btn-secondary">
           <%= link_to 'Edit Photo', edit_photo_path(@photo) %>
         </button>
@@ -28,16 +25,14 @@
           <%= link_to 'Delete Photo', photo_path(@photo), method: :delete, data: { confirm: "Are you sure?" } %>
         </button>
     </div>
-    <div class="container col-3"></div>
-  </div>
+  </section>
 <% end %>
 
 <br />
 <br />
 
-<div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">
+<section class="row">
+  <div class="container">
     <div class="card border-primary">
       <div class="card-body">
         <h5>Comments</h5>
@@ -47,17 +42,14 @@
       </div>
     </div>
   </div>
-  <div class="container col-3"></div>
-</div>
+</section>
 
 <br />
 
-<div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">
+<section class="row">
+  <div class="container">
     <button type="button" class="btn btn-secondary">
       <%= link_to "All photos", photos_path %>
     </button>
   </div>
-  <div class="container col-3"></div>
-</div>
+</section

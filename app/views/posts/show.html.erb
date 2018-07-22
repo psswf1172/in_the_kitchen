@@ -1,18 +1,15 @@
-<div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">  
+<section class="row">
+  <div id="page" class="container">
     <h4><%= @post.title %></p></h4>
     <p><%= @post.author %></p>
     <p class="fr-view"><%= raw @post.description %></p>
   </div>
-  <div class="container col-3"></div>
-</div>
+</section>
 
 <br>
 
-<div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">
+<section class="row">
+  <div class="container">
     <% if current_user == @post.user %>
       <button type="button" class="btn btn-secondary">
         <%= link_to 'Edit Post', edit_post_path(@post) %>
@@ -23,18 +20,15 @@
       </button>
     <% end %>
   </div>
-  <div class="container col-3"></div>
-</div>
+</section>
 
 <br />
 <br />
 
-<div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">
+<section class="row">
+  <div class="container">
     <button type="button" class="btn btn-secondary">
       <%= link_to "All Stories", posts_path %>
     </button>
   </div>
-  <div class="container col-3"></div>
-</div>
+</section>

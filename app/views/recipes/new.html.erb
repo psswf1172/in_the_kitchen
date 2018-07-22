@@ -1,13 +1,11 @@
-<div class="row">
-  <div class="container col-2"></div>
-  <div class="container col-8">
+<section class="row">
+  <div id="page" class="container">
     <br /><h5>Enter recipe details</h5>
-    
+
       <%= render "form", object: @recipe %>
-      
+
       <button type="button" class="btn btn-secondary">
       <%= link_to 'Return to recipes list', recipes_path %>
     </button>
   </div>
-  <div class="container col-2"></div>
-</div>
+</section>
