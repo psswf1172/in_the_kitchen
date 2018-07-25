@@ -1,12 +1,11 @@
 <br />
-<div class="row">
-  <div class="container col-3"></div>
-  <div class="container col-6">
+<section class="row">
+  <div class="container">
     <% unless @posts.nil? %>
       <% if @posts.empty?%>
         <h2>No posts found matching your query.</h2>
       <% else %>
-        <div class="card border-secondary"> 
+        <div class="card border-secondary">
         <div class="card-body">
           <h4 class="card-title">Search results</h4>
 
@@ -34,7 +33,7 @@
                       <% elsif post.class == Instruction %>
                         <% r = Recipe.find(post.recipe_id) %>
                         <td><%= link_to r.title, controller: "#{r.type.downcase}s", action: "show", id: "#{r.id}" %></td>
-                        <td><%= r.author%></td>  
+                        <td><%= r.author%></td>
 
                       <% elsif post.class == Tag %>
                         <% t = Post.find((post.post_ids).first) %>
@@ -42,11 +41,11 @@
                         <td><%= t.author%></td>
 
                       <% elsif post.type == "Story" %>
-                        <td><%= link_to post.title, controller: "#{post.type.gsub("y", "ie").downcase}s", action: "show", id: "#{post.id}" %></td>                      
+                        <td><%= link_to post.title, controller: "#{post.type.gsub("y", "ie").downcase}s", action: "show", id: "#{post.id}" %></td>
                         <td><%= post.author %></td>
                       <% else %>
-                      
-                        <td><%= link_to post.title, controller: "#{post.type.downcase}s", action: "show", id: "#{post.id}" %></td>                      
+
+                        <td><%= link_to post.title, controller: "#{post.type.downcase}s", action: "show", id: "#{post.id}" %></td>
                         <td><%= post.author %></td>
                       <% end %>
                     </tr>
@@ -59,5 +58,4 @@
       <% end %>
     <% end %>
   </div>
-  <div class="container col-3"></div>
-</div>
+</section>

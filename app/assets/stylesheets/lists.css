@@ -46,6 +46,6 @@
   #recipes-list li,
   #photos-list li,
   #stories-list li {
-    max-width: 270px;
+    max-width: 30%;
   }
 }
