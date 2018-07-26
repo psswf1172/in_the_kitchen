@@ -6,8 +6,8 @@
           <div class="card-body">
             <h4 class="card-title"><%= link_to story.title, story_path(story)%></h4>
             <h6 class="card-subtitle mb-2 text-muted"><%= story.author %></h6>
-              <p class="card-text fr-view"><%= truncate(story.description.html_safe, length: 75, separator: " ", escape: false)  %></p>
-              <p><% story.tags.each do |tag| %>
+              <p class="card-text fr-view"><%= truncate(sanitize(story.description, tags: %w(p)), length: 200, separator: " ", escape: false) %></p>
+              <p><% story.tags[0..2].each do |tag| %>
                 <span class="badge badge-pill badge-success">
                   <%= tag.name %>
                 </span>

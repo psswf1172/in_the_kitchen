@@ -9,11 +9,10 @@
               <% photo.images.each do | image | %>
                 <%= image_tag image.variant(resize: "300 x 300"), alt: "Photo posted by #{photo.author}", class: "card-img" %>
               <% end %>
-              <p class="card-text fr-view">
-                <%=  truncate(photo.description.html_safe, length: 150, separator: " ", escape: false) %>
+                <p class="card-text fr-view"><%= truncate(sanitize(photo.description, tags: %w(p)), length: 150, separator: " ", escape: false) %></p>
               </p>
-              <p><% photo.tags.each do |tag| %>
-                <span class="badge badge-pill badge-warning">
+              <p><% photo.tags[0..2].each do |tag| %>
+                <span class="badge badge-pill badge-info">
                   <%= tag.name %>
                 </span>
                 <% end %>

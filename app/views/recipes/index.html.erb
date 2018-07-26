@@ -6,13 +6,13 @@
           <div class="card-body">
             <h4 class="card-title"><%= link_to recipe.title, recipe_path(recipe)%></h4>
             <h6 class="card-subtitle mb-2 text-muted"><%= recipe.author %></h6>
-              <p class="card-text fr-view"><%= truncate(recipe.description.html_safe, length: 50, separator: " ", escape: false) %></p>
-              <!-- <p><% recipe.tags.uniq.each do |tag| %>
+              <p class="card-text fr-view"><%= truncate(sanitize(recipe.description, tags: %w(p)), length: 200, separator: " ", escape: false) %></p>
+              <p><% recipe.tags[0..2].each do |tag| %>
                 <span class="badge badge-pill badge-danger">
                   <%= tag.name %>
                 </span>
                 <% end %>
-              </p> -->
+              </p>
           </div>
         </li><br />
       <% end %>
