@@ -14,8 +14,6 @@ class Recipe < Post
   validates_associated :ingredients
   validates_associated :instructions
 
-  attr_accessor :cooked
-
   def chapter_search(chapter)
     instance_variable_set("@#{chapter}", Searchkick.search(chapter))
   end

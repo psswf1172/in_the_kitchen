@@ -1,10 +1,10 @@
-class User < ApplicationRecord
+   class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable, :confirmable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google]
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
-  searchkick inheritance: true
+  # searchkick inheritance: true
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do | user |

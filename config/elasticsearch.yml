@@ -1,14 +1,15 @@
 development: &default
   host: 'http://localhost:9200'
-  es_bin: './elasticsearch-6.2.4/bin/elasticsearch'
+  es_bin: './elasticsearch-7.7.1/bin/elasticsearch'
   port: '9200'
 test:
   <<: *default
   port: '9250'
 staging:
   <<: *default
-production:
-  host: 'https://search-in-the-monaco-kitchen-hog3n323ovglhuyra3ogmnuss4.us-east-1.es.amazonaws.com'
-  port: '9400'
+# 6.3.20 commented production out bc removing aws
+# production:
+#   host: 'https://search-in-the-monaco-kitchen-hog3n323ovglhuyra3ogmnuss4.us-east-1.es.amazonaws.com'
+#   port: '9400'
 http.cors.enabled: true
 http.cors.allow-origin: "*"

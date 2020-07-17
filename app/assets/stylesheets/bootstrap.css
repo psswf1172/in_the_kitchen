@@ -5027,6 +5027,7 @@ input[type="button"].btn-block {
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: 0;
+  margin: 0.15em;
 }
 
 .badge:empty {
