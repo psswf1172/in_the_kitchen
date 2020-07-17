@@ -12,7 +12,7 @@ gem 'aws-sdk'
 gem 'aws-sdk-rails'
 gem 'aws-sdk-s3'
 gem 'bcrypt', '~> 3.1.7'
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'cocoon', '~> 1.2', '>= 1.2.11'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
