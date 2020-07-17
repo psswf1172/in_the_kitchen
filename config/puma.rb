@@ -9,14 +9,18 @@ threads threads_count, threads_count
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
-# port        ENV.fetch("PORT") { 3000 }
+port        ENV.fetch("PORT") { 3000 }
 
 # Specifies the `environment` that Puma will run in.
 #
 environment ENV.fetch("RAILS_ENV") { "development" }
 
+# Specifies the `pidfile` that Puma will use.
+pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
+# from rails 5.2 config
 # bind "unix:///var/run/puma/my_app.sock"
-# pidfile "/var/run/puma/my_app.sock"
+# pidfile ENV.fetch("PIDFILE") { "/var/run/puma/my_app.sock" }
+
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
@@ -35,39 +39,3 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
-
-if Rails.env.development?
-
-  localhost_key = "#{Dir.pwd}/#{File.join('localhost','localhost.key')}"
-  localhost_cert = "#{Dir.pwd}/#{File.join('localhost', 'localhost.crt')}"
-
-  unless File.exist?(localhost_key)
-    def generate_root_cert(root_key)
-      root_ca = OpenSSL::X509::Certificate.new
-      root_ca.version = 2 # cf. RFC 5280 - to make it a "v3" certificate
-      root_ca.serial = 0x0
-      root_ca.subject = OpenSSL::X509::Name.parse "/C=BE/O=A1/OU=A/CN=localhost"
-      root_ca.issuer = root_ca.subject # root CA's are "self-signed"
-      root_ca.public_key = root_key.public_key
-      root_ca.not_before = Time.now
-      root_ca.not_after = root_ca.not_before + 2 * 365 * 24 * 60 * 60 # 2 years validity
-      root_ca.sign(root_key, OpenSSL::Digest::SHA256.new)
-      root_ca
-    end
-
-    root_key = OpenSSL::PKey::RSA.new(2048)
-    file = File.new( localhost_key, "wb")
-    file.write(root_key)
-    file.close
-
-    root_cert = generate_root_cert(root_key)
-    file = File.new( localhost_cert, "wb")
-    file.write(root_cert)
-    file.close
-  end
-
-  ssl_bind '127.0.0.1', '3000', {
-    key: localhost_key,
-    cert: localhost_cert
-  }
-end

@@ -31,9 +31,8 @@ Rails.application.routes.draw do
   get "/contributors", to: "home#contributors"
   get "/copyright", to: "home#copyright"
   get "/dedication", to: "home#dedication"
-  get "/privacy-policy", to: "home#privacy-policy"
+  get "/privacypolicy", to: "home#privacypolicy"
   get "tags/:tag", to: "recipes#index", as: "tag"
-  get "/terms-of-service", to: "home#terms-of-service"
-
+  get "/termsofservice", to: "home#termsofservice"
 
 end
