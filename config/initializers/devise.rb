@@ -159,7 +159,7 @@ Devise.setup do |config|
 
   # Options to be passed to the created cookie. For instance, you can set
   # secure: true in order to force SSL only cookies.
-  # config.rememberable_options = {}
+  config.rememberable_options = { secure: true }
 
   # ==> Configuration for :validatable
   # Range for password length.
@@ -259,6 +259,10 @@ Devise.setup do |config|
 
 # require "omniauth-facebook" 
 config.omniauth :facebook, ENV["FB_APP_ID"], ENV["FB_APP_SECRET"]
+  #   client_options: {
+  #     site: 'https://graph.facebook.com/v7.0',
+  #     authorize_url: 'https://www.facebook.com/v7.0/dialog/oauth'
+  # }
 config.omniauth :google_oauth2, ENV["GOOGLE_ID"], ENV["GOOGLE_SECRET"], { 
     name: "google", 
     image_aspect_ratio: "square",

@@ -1107,7 +1107,7 @@ GEM
       omniauth (~> 1.9)
     openssl (2.2.0)
     orm_adapter (0.5.0)
-    pg (0.21.0)
+    pg (0.18.4)
     popper_js (1.16.0)
     pry (0.13.1)
       coderay (~> 1.1)
@@ -1115,7 +1115,7 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (4.0.5)
-    puma (4.3.5)
+    puma (4.3.3)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -1283,9 +1283,9 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-google-oauth2
   openssl
-  pg (~> 0.21.0)
+  pg (~> 0.18.4)
   pry-rails (~> 0.3.6)
-  puma
+  puma (= 4.3.3)
   rails (~> 6.0.3.2)
   rails-erd
   rspec-rails (~> 3.7)
