@@ -28,7 +28,7 @@ gem 'jquery-rails'
 gem 'mini_magick', '>= 4.9.4'
 
 gem 'oj' #speed up JSON generation and parsing
-gem 'omniauth', '~> 1.6', '>= 1.6.1'
+gem 'omniauth', '~> 1.9'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2' # git: 'https://github.com/zquestz/omniauth-google-oauth2.git'
 gem 'openssl'
